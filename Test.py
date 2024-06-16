@@ -5,7 +5,8 @@ st.write("Hello World")
 import pandas as pd
 import requests
 import re
-import beautifulsoup4
+sudo apt-get install python-beautifulsoup
+from BeautifulSoup import BeautifulSoup
 import streamlit as st
 from datetime import datetime
 from datetime import timedelta
