@@ -1,3 +1,5 @@
+pip install beautifulsoup4
+
 import streamlit as st
 
 st.write("Hello World")
@@ -5,7 +7,6 @@ st.write("Hello World")
 import pandas as pd
 import requests
 import re
-sudo apt-get install python-beautifulsoup
 from BeautifulSoup import BeautifulSoup
 import streamlit as st
 from datetime import datetime
