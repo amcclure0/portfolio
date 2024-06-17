@@ -290,7 +290,7 @@ renderlogo = JsCode("""function (params) {
         var element = document.createElement("span");
         var imageElement = document.createElement("img");
     
-        imageElement.src = params.data.logo_x;
+        imageElement.src = params.data.logo;
         imageElement.width="40";
         imageElement.height="40";
 
@@ -298,7 +298,7 @@ renderlogo = JsCode("""function (params) {
         element.appendChild(document.createTextNode(params.value));
         return element;
         }""")
-options_builder.configure_column('logo_x', cellRenderer=renderlogo)
+options_builder.configure_column('logo', cellRenderer=renderlogo)
 
 grid_options = options_builder.build()
 
