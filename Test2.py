@@ -7,7 +7,7 @@ data = {
     "Name": ["Alice", "Bob", "Charlie"],
     "Age": [25, 30, 35],
     "link": [
-        "https://i.imgur.com/fH2LHvo.png",
+        "https://www.gstatic.com/flights/airline_logos/70px/ET.png",
         "https://i.imgur.com/bvHZX5j.png",
         "https://i.imgur.com/D7xDwT9.png",
     ],
