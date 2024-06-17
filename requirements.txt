@@ -1,4 +1,4 @@
 Streamlit
 beautifulsoup4
 bs4
-aggrid
+streamlit-aggrid
