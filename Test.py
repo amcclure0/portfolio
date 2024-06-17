@@ -5,7 +5,7 @@ st.write("Hello World")
 import pandas as pd
 import requests
 import re
-from BeautifulSoup import BeautifulSoup
+from bs4 import BeautifulSoup
 import streamlit as st
 from datetime import datetime
 from datetime import timedelta
