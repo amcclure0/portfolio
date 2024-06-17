@@ -77,7 +77,7 @@ ob.configure_column("Details", hide=True)
 # 6. Build the options.
 grid_options = ob.build()
 
-st.markdown('#### Streamlit-AgGrid')
+#st.markdown('#### Streamlit-AgGrid')
 
 # 7. Add custom css to center the values, as we adjusted the row height in step 4.
 grid_return = AgGrid(
