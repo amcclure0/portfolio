@@ -303,7 +303,7 @@ thumbnail_renderer = JsCode("""
     }
 """)
 
-gb.configure_column('link', cellRenderer=thumbnail_renderer)
+gb.configure_column('logo_x', cellRenderer=thumbnail_renderer)
 
 grid = AgGrid(allflights,
             gridOptions=gb.build(),
