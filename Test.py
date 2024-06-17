@@ -13,7 +13,7 @@ import streamlit as st
 from st_aggrid import AgGrid
 
 Origin = 'ORD'
-Dest = 'TBS'
+Dest = 'ADD'
 Date = '2024-08-01'
 Minlayover = 2
 Convertdate = datetime.strptime(Date, "%Y-%m-%d")
