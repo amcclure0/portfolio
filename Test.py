@@ -283,28 +283,29 @@ allflights = pd.merge(leg1flightsdf, leg2flightsdf, on='layover')
 
 #print(allflights)
 
-options_builder = GridOptionsBuilder.from_dataframe(allflights)
+gb = GridOptionsBuilder.from_dataframe(allflights,
+                                        editable=True)
 
-renderlogo = JsCode("""function (params) {
-        console.log(params);
-        var element = document.createElement("span");
-        var imageElement = document.createElement("img");
-    
-        imageElement.src = params.data.logo;
-        imageElement.width="40";
-        imageElement.height="40";
+thumbnail_renderer = JsCode("""
+    class ThumbnailRenderer {
+        init(params) {
 
-        element.appendChild(imageElement);
-        element.appendChild(document.createTextNode(params.value));
-        return element;
-        }""")
-options_builder.configure_column('logo', cellRenderer=renderlogo)
+        this.eGui = document.createElement('img');
+        this.eGui.setAttribute('src', params.value);
+        this.eGui.setAttribute('width', '40');
+        this.eGui.setAttribute('height', '40');
+        }
+            getGui() {
+            console.log(this.eGui);
 
-grid_options = options_builder.build()
+            return this.eGui;
+        }
+    }
+""")
 
-grid_return = AgGrid(allflights,
-                    grid_options,
-                    theme="streamlit",
-                    allow_unsafe_jscode=True,
-                    )
-# AgGrid(allflights, height=400)
+gb.configure_column('link', cellRenderer=thumbnail_renderer)
+
+grid = AgGrid(allflights,
+            gridOptions=gb.build(),
+            updateMode=GridUpdateMode.VALUE_CHANGED,
+            allow_unsafe_jscode=True)
