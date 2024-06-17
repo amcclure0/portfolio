@@ -12,10 +12,10 @@ with st.status("finding hidden flights...connecting you to the world...", expand
     st.write("Finding layover points...")
     time.sleep(5)
     st.write("Finding flights...")
-    time.sleep(7)
+    time.sleep(10)
     st.write("Comparing prices...")
-    time.sleep(7)
-    status.update(label="start exploring!", state="complete", expanded=False)
+    time.sleep(15)
+    #status.update(label="start exploring!", state="complete", expanded=False)
 
 import pandas as pd
 import requests
