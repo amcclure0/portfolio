@@ -298,7 +298,7 @@ renderlogo = JsCode("""function (params) {
         element.appendChild(document.createTextNode(params.value));
         return element;
         }""")
-options_builder.configure_column('layover_x','layovername_x','price_x','cleanprice_x','time_x','airline_x','totaltime_x','stops_x','logo_x','departuretime_x','arrivaltime_x','layover_y','layovername_y','price_y','cleanprice_y',time_y','airline_y','totaltime_y','stops_y','logo_y','departuretime_y','arrivaltime_y' cellRenderer=renderlogo)
+options_builder.configure_column('layover_x','layovername_x','price_x','cleanprice_x','time_x','airline_x','totaltime_x','stops_x','logo_x','departuretime_x','arrivaltime_x','layover_y','layovername_y','price_y','cleanprice_y',time_y','airline_y','totaltime_y','stops_y','logo_y','departuretime_y','arrivaltime_y', cellRenderer=renderlogo)
 
 
 grid_options = options_builder.build()
