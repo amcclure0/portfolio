@@ -29,11 +29,10 @@ gb.configure_column(
     cellRenderer=JsCode("""
         class UrlCellRenderer {
           init(params) {
-            this.eGui = document.createElement('a');
-            this.eGui.innerText = 'SomeText';
-            this.eGui.setAttribute('href', params.value);
-            this.eGui.setAttribute('style', "text-decoration:none");
-            this.eGui.setAttribute('target', "_blank");
+            this.eGui = document.createElement('img');
+            this.eGui.setAttribute(‘src’, params.value);
+            this.eGui.setAttribute(‘width’, ‘100’);
+            this.eGui.setAttribute(‘height’, ‘auto’);
           }
           getGui() {
             return this.eGui;
