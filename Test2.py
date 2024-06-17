@@ -17,21 +17,24 @@ df = pd.DataFrame(data)
 gb = GridOptionsBuilder.from_dataframe(df,
                                         editable=True)
 
-thumbnail_renderer = JsCode(“”"
-class ThumbnailRenderer {
-init(params) {
-this.eGui = document.createElement(‘img’);
-this.eGui.setAttribute(‘src’, params.value);
-this.eGui.setAttribute(‘width’, ‘100’);
-this.eGui.setAttribute(‘height’, ‘auto’);
-}
-getGui() {
-return this.eGui;
-}
-}
-“”")
+  thumbnail_renderer = JsCode("""
+        class ThumbnailRenderer {
+            init(params) {
 
-#gb.configure_column(“Thumbnail”, “Thumbnail”, cellRenderer=thumbnail_renderer)
+            this.eGui = document.createElement('img');
+            this.eGui.setAttribute('src', params.value);
+            this.eGui.setAttribute('width', '100');
+            this.eGui.setAttribute('height', 'auto');
+            }
+                getGui() {
+                console.log(this.eGui);
+
+                return this.eGui;
+            }
+        }
+    """)
+
+    gd.configure_column("link", cellRenderer=thumbnail_renderer)
 
 grid = AgGrid(df,
             gridOptions=gb.build(),
