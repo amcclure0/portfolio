@@ -7,9 +7,9 @@ data = {
     "Name": ["Alice", "Bob", "Charlie"],
     "Age": [25, 30, 35],
     "link": [
-        "https://example.com/alice",
-        "https://example.com/bob",
-        "https://example.com/charlie",
+        "https://i.imgur.com/fH2LHvo.png",
+        "https://i.imgur.com/bvHZX5j.png",
+        "https://i.imgur.com/D7xDwT9.png",
     ],
 }
 
