@@ -4,18 +4,18 @@ import time
 st.title("Welcome to Flight Finder")
 st.subheader("Did you know that not all connecting flight combinations are searchable on Google Flights? Flight Finder finds hidden flight combinations not marketed by the airlines or Google Flights.")
 
-#with st.spinner('finding hidden flights...connecting you to the world...'):
-#    time.sleep(5)
-#st.success('start exploring!')
+#    with st.spinner('finding hidden flights...connecting you to the world...'):
+#        time.sleep(5)
+#    st.success('start exploring!')
 
 with st.status("finding hidden flights...connecting you to the world...", expanded=True) as status:
     st.write("Finding layover points...")
-    time.sleep(5)
+    time.sleep(10)
     st.write("Finding flights...")
-    time.sleep(15)
-    st.write("Comparing prices...")
     time.sleep(20)
-    status.update(state="complete", expanded=False)
+    st.write("Comparing prices...")
+    time.sleep(30)
+    status.update(label = "start exploring!", state="complete", expanded=False)
 
 import pandas as pd
 import requests
