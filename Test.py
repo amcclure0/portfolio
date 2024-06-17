@@ -245,7 +245,7 @@ for i in googleurlsleg2:
         totaltime = str(flight.find('div', class_='gvkrdb AdWm1c tPgKwe ogfYpf').text)
         stop = str(flight.find('div', class_='EfT7Ae AdWm1c tPgKwe').text)
         logo = str(flight.find('div', class_='EbY4Pc P2UJoe'))
-        logoclean = '"'+logo[logo.find('(')+1:logo.find(')')]'"'
+        logoclean = '"'+logo[logo.find('(')+1:logo.find(')')]+'"'
         dtime = time[time.find('M')+1:time.find('on')-1]
         dstring = time[time.find(',')+2:time.find('–')-1]
         ddate = dstring[-2:].lstrip(' ').zfill(2)
