@@ -283,8 +283,9 @@ allflights = pd.merge(leg1flightsdf, leg2flightsdf, on='layover')
 
 #print(allflights)
 
-gb = GridOptionsBuilder.from_dataframe(allflights,
-                                        editable=True)
+gb = GridOptionsBuilder.from_dataframe(allflights, editable=True)
+gb.configure_grid_options(rowHeight=90)
+
 
 thumbnail_renderer = JsCode("""
     class ThumbnailRenderer {
@@ -292,8 +293,8 @@ thumbnail_renderer = JsCode("""
 
         this.eGui = document.createElement('img');
         this.eGui.setAttribute('src', params.value);
-        this.eGui.setAttribute('width', '40');
-        this.eGui.setAttribute('height', '40');
+        this.eGui.setAttribute('width', '60');
+        this.eGui.setAttribute('height', '60');
         }
             getGui() {
             console.log(this.eGui);
