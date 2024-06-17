@@ -9,11 +9,11 @@ st.subheader("Did you know that not all connecting flight combinations are searc
 #    st.success('start exploring!')
 
 with st.status("finding hidden flights...connecting you to the world...", expanded=True) as status:
-    st.write("Finding layover points...")
+    st.write("finding layover points...")
     time.sleep(10)
-    st.write("Finding flights...")
-    time.sleep(20)
-    st.write("Comparing prices...")
+    st.write("finding flights...")
+    time.sleep(30)
+    st.write("comparing prices...")
     time.sleep(30)
     status.update(label = "start exploring!", state="complete", expanded=False)
 
