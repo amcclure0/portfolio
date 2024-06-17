@@ -1,5 +1,3 @@
-pip install beautifulsoup4
-
 import streamlit as st
 
 st.write("Hello World")
