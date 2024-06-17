@@ -284,7 +284,7 @@ allflights = pd.merge(leg1flightsdf, leg2flightsdf, on='layover')
 #print(allflights)
 
 gb = GridOptionsBuilder.from_dataframe(allflights, editable=True)
-gb.configure_grid_options(rowHeight=90)
+gb.configure_grid_options(rowHeight=60)
 
 
 thumbnail_renderer = JsCode("""
