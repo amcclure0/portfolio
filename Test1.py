@@ -91,19 +91,4 @@ grid_return = AgGrid(
                                      'justify-content': 'center',
                                      'align-items': 'center'},
                 '.ag-header-cell-label': {'justify-content': 'center'}}
-) 
-
-selected_rows = grid_return["selected_rows"]
-
-if len(selected_rows):
-    st.markdown('#### Selected')
-    dfs = pd.DataFrame(selected_rows)
-
-    dfsnet = dfs.drop(columns=['_selectedRowNodeInfo', 'Details'])
-    AgGrid(
-        dfsnet,
-        enable_enterprise_modules=False,
-        columns_auto_size_mode=ColumnsAutoSizeMode.FIT_ALL_COLUMNS_TO_VIEW,
-        reload_data=True,
-        key='product_selected'
-    )
+)
