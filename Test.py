@@ -10,7 +10,7 @@ import streamlit as st
 from datetime import datetime
 from datetime import timedelta
 import streamlit as st
-from st_aggrid import AgGrid
+from streamlit-aggrid import AgGrid
 
 Origin = 'ORD'
 Dest = 'TBS'
