@@ -12,7 +12,7 @@ from datetime import timedelta
 import streamlit as st
 
 Origin = 'ORD'
-Dest = 'EDI'
+Dest = 'TBS'
 Date = '2024-08-01'
 Minlayover = 2
 Convertdate = datetime.strptime(Date, "%Y-%m-%d")
