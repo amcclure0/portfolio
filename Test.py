@@ -1,4 +1,5 @@
 import streamlit as st
+import time
 
 st.title("Welcome to Flight Finder")
 st.subheader("Did you know that not all connecting flight combinations are searchable on Google Flights? Flight Finder finds hidden flight combinations not marketed by the airlines or Google Flights.")
