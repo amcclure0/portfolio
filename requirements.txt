@@ -1,3 +1,4 @@
 Streamlit
 beautifulsoup4
 bs4
+st_aggrid
