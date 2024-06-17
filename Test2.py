@@ -34,7 +34,7 @@ thumbnail_renderer = JsCode("""
     }
 """)
 
-GridOptionsBuilder.configure_column('link', cellRenderer=thumbnail_renderer)
+gb.configure_column('link', cellRenderer=thumbnail_renderer)
 
 grid = AgGrid(df,
             gridOptions=gb.build(),
