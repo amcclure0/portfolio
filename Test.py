@@ -298,7 +298,7 @@ renderlogo = JsCode("""function (params) {
         element.appendChild(document.createTextNode(params.value));
         return element;
         }""")
-options_builder.configure_column('logo_x', cellRenderer=renderlogo)
+options_builder.configure_column('airline_x', cellRenderer=renderlogo)
 
 
 grid_options = options_builder.build()
