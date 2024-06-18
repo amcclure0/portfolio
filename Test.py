@@ -192,7 +192,7 @@ for i in googleurlsleg1:
         ddttmstr = Date[:4]+dstring[:3]+ddate+dtime
         atime = time[time.find('–')+2:time.find('M',time.find('–')+2)+1]
         astring = time[time.find('on',time.find('–')+2)+8:len(time)]
-        adate = dstring[-2:].lstrip(' ').zfill(2)
+        adate = astring[-2:].lstrip(' ').zfill(2)
         adttmstr = Date[:4]+astring[:3]+adate+atime
         ddttm = datetime.strptime(ddttmstr, '%Y%b%d%I:%M %p')
         adttm = datetime.strptime(adttmstr, '%Y%b%d%I:%M %p')
@@ -266,7 +266,7 @@ for i in googleurlsleg2:
         ddttmstr = Date[:4]+dstring[:3]+ddate+dtime
         atime = time[time.find('–')+2:time.find('M',time.find('–')+2)+1]
         astring = time[time.find('on',time.find('–')+2)+8:len(time)]
-        adate = dstring[-2:].lstrip(' ').zfill(2)
+        adate = astring[-2:].lstrip(' ').zfill(2)
         adttmstr = Date[:4]+astring[:3]+adate+atime
         ddttm = datetime.strptime(ddttmstr, '%Y%b%d%I:%M %p')
         adttm = datetime.strptime(adttmstr, '%Y%b%d%I:%M %p')
