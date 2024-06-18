@@ -18,7 +18,7 @@ st.subheader("Did you know that not all connecting flight combinations are searc
 #        status.update(label = "start exploring! your flight options will display momentarily.", state="complete", expanded=False)
 
 with st.spinner("finding flights...connecting you to the world."):
-    response = call_steamship(prompt, context)
+    st.code(code)
 
 import pandas as pd
 import requests
