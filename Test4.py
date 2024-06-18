@@ -15,7 +15,7 @@ with st.status("finding hidden flights...connecting you to the world.", expanded
    time.sleep(30)
    st.write("comparing prices...")
 
-   (import pandas as pd
+   import pandas as pd
    import requests
    import re
    from bs4 import BeautifulSoup
@@ -322,6 +322,6 @@ with st.status("finding hidden flights...connecting you to the world.", expanded
              gridOptions=gb.build(),
              updateMode=GridUpdateMode.VALUE_CHANGED,
              allow_unsafe_jscode=True)
-   )
+   
    time.sleep(35)
    status.update(label = "start exploring! your flight options will display momentarily.", state="complete", expanded=False)
