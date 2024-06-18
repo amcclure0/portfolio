@@ -9,11 +9,11 @@ st.subheader("Did you know that not all connecting flight combinations are searc
 #    st.success('start exploring!')
 
 with st.status("finding hidden flights...connecting you to the world.", expanded=True) as status:
-   st.write("finding layover points...")
+   st.write("(step 1/3) finding layover points...")
    time.sleep(10)
-   st.write("finding flights...")
+   st.write("(step 2/3) finding flights...")
    time.sleep(35)
-   st.write("comparing prices...")
+   st.write("(step 3/3) comparing prices...")
 
    import pandas as pd
    import requests
@@ -320,7 +320,7 @@ with st.status("finding hidden flights...connecting you to the world.", expanded
    
    grid = AgGrid(allflights,
              gridOptions=gb.build(),
-             updateMode=GridUpdateMode.VALUE_CHANGED,
+             updateMode=GridUpdateMode.NO_UPDATE, #VALUE_CHANGED,
              allow_unsafe_jscode=True)
    
-   status.update(label = "start exploring your flight options!", state="complete", expanded=False)
+   status.update(label = "start exploring your flight options!", state="complete", expanded=True)
