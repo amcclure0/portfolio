@@ -8,13 +8,13 @@ st.subheader("Did you know that not all connecting flight combinations are searc
 #        time.sleep(5)
 #    st.success('start exploring!')
 
-with st.status("finding hidden flights...connecting you to the world...", expanded=True) as status:
+with st.status("finding hidden flights...connecting you to the world.", expanded=True) as status:
     st.write("finding layover points...")
     time.sleep(10)
     st.write("finding flights...")
     time.sleep(30)
     st.write("comparing prices...")
-    time.sleep(30)
+    time.sleep(35)
     status.update(label = "start exploring! your flight options will display momentarily.", state="complete", expanded=False)
 
 import pandas as pd
