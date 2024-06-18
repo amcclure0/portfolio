@@ -320,7 +320,7 @@ with st.status("finding hidden flights...connecting you to the world.", expanded
    
    grid = AgGrid(allflights,
              gridOptions=gb.build(),
-             updateMode=GridUpdateMode.NO_UPDATE, #VALUE_CHANGED,
+             updateMode=GridUpdateMode.MODEL_CHANGED, #VALUE_CHANGED,
              allow_unsafe_jscode=True)
    
    status.update(label = "start exploring your flight options!", state="complete", expanded=True)
