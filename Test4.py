@@ -12,7 +12,7 @@ with st.status("finding hidden flights...connecting you to the world.", expanded
    st.write("finding layover points...")
    time.sleep(10)
    st.write("finding flights...")
-   time.sleep(30)
+   time.sleep(35)
    st.write("comparing prices...")
 
    import pandas as pd
@@ -323,5 +323,4 @@ with st.status("finding hidden flights...connecting you to the world.", expanded
              updateMode=GridUpdateMode.VALUE_CHANGED,
              allow_unsafe_jscode=True)
    
-   time.sleep(35)
-   status.update(label = "start exploring! your flight options will display momentarily.", state="complete", expanded=False)
+   status.update(label = "start exploring your flight options!", state="complete", expanded=False)
