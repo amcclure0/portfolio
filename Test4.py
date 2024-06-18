@@ -295,7 +295,7 @@ with st.status("finding hidden flights...connecting you to the world.", expanded
    
    #print(allflights)
    
-   gb = GridOptionsBuilder.from_dataframe(allflights, editable=True)
+   gb = GridOptionsBuilder.from_dataframe(allflights, editable=False)
    gb.configure_grid_options(rowHeight=65)
    gb.configure_selection(selection_mode="single", use_checkbox=True)
    
