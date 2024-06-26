@@ -323,4 +323,4 @@ with st.status("finding hidden flights...connecting you to the world.", expanded
              updateMode=GridUpdateMode.MODEL_CHANGED, #VALUE_CHANGED,
              allow_unsafe_jscode=True)
    
-   status.update(label = "your flight options are ready.", state="complete", expanded=True)
+   status.update(label = "your flight options are ready.", state="complete", expanded=False)
