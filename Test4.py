@@ -1,6 +1,8 @@
 import streamlit as st
 import time
 
+st.set_page_config(layout="wide")
+
 st.title("Welcome to Flight Finder")
 st.subheader("Did you know that not all connecting flight combinations are searchable on Google Flights? Flight Finder finds hidden flight combinations not marketed by the airlines or on Google Flights.")
 
@@ -10,7 +12,7 @@ st.subheader("Did you know that not all connecting flight combinations are searc
 
 Origin = st.text_input("Origin Airport Code", 'ORD')
 Dest = st.text_input("Destination Airport Code")
-Date = st.date_input("Travel Date")
+Date = '2024-08-01'
 
 with st.status("finding hidden flights...connecting you to the world.", expanded=True) as status:
    st.write("(step 1/3) finding layover points...")
