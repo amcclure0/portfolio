@@ -8,7 +8,7 @@ st.subheader("Did you know that not all connecting flight combinations are searc
 #        time.sleep(5)
 #    st.success('start exploring!')
 
-user_input = st.text_input("origin airport code", ORD)
+user_input = st.text_input("origin airport code", 'ORD')
 
 with st.status("finding hidden flights...connecting you to the world.", expanded=True) as status:
    st.write("(step 1/3) finding layover points...")
