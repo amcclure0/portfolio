@@ -28,7 +28,7 @@ with st.status("finding hidden flights...connecting you to the world.", expanded
    import streamlit.components.v1 as components
    
    Origin = 'ORD'
-   Dest = 'ADD'
+   Dest = 'AKL'
    Date = '2024-08-01'
    Minlayover = 2
    Convertdate = datetime.strptime(Date, "%Y-%m-%d")
@@ -323,4 +323,4 @@ with st.status("finding hidden flights...connecting you to the world.", expanded
              updateMode=GridUpdateMode.MODEL_CHANGED, #VALUE_CHANGED,
              allow_unsafe_jscode=True)
    
-   status.update(label = "start exploring your flight options!", state="complete", expanded=True)
+   status.update(label = "your flight options are ready", state="complete", expanded=True)
