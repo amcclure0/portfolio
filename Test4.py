@@ -8,7 +8,9 @@ st.subheader("Did you know that not all connecting flight combinations are searc
 #        time.sleep(5)
 #    st.success('start exploring!')
 
-user_input = st.text_input("origin airport code", 'ORD')
+Origin = st.text_input("Origin Airport Code", 'ORD')
+Dest = st.text_input("Destination Airport Code")
+Date = st.date_input("Travel Date")
 
 with st.status("finding hidden flights...connecting you to the world.", expanded=True) as status:
    st.write("(step 1/3) finding layover points...")
@@ -29,9 +31,9 @@ with st.status("finding hidden flights...connecting you to the world.", expanded
    from st_aggrid.grid_options_builder import GridOptionsBuilder
    import streamlit.components.v1 as components
    
-   Origin = 'ORD'
-   Dest = 'AKL'
-   Date = '2024-08-01'
+   # Origin = 'ORD'
+   # Dest = 'AKL'
+   # Date = '2024-08-01'
    Minlayover = 2
    Convertdate = datetime.strptime(Date, "%Y-%m-%d")
    Nextdateraw = Convertdate + timedelta(days=1)
