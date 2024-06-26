@@ -2,7 +2,7 @@ import streamlit as st
 import time
 
 st.title("Welcome to Flight Finder")
-st.subheader("Did you know that not all connecting flight combinations are searchable on Google Flights? Flight Finder finds hidden flight combinations not marketed by the airlines or Google Flights.")
+st.subheader("Did you know that not all connecting flight combinations are searchable on Google Flights? Flight Finder finds hidden flight combinations not marketed by the airlines or on Google Flights.")
 
 #    with st.spinner('finding hidden flights...connecting you to the world.'):
 #        time.sleep(5)
@@ -297,7 +297,7 @@ with st.status("finding hidden flights...connecting you to the world.", expanded
    
    gb = GridOptionsBuilder.from_dataframe(allflights, editable=False)
    gb.configure_grid_options(rowHeight=65)
-   gb.configure_selection(selection_mode="single", use_checkbox=True)
+   # gb.configure_selection(selection_mode="single", use_checkbox=True)
    
    thumbnail_renderer = JsCode("""
      class ThumbnailRenderer {
@@ -323,4 +323,4 @@ with st.status("finding hidden flights...connecting you to the world.", expanded
              updateMode=GridUpdateMode.MODEL_CHANGED, #VALUE_CHANGED,
              allow_unsafe_jscode=True)
    
-   status.update(label = "your flight options are ready", state="complete", expanded=True)
+   status.update(label = "your flight options are ready.", state="complete", expanded=True)
