@@ -323,6 +323,7 @@ with st.status("finding hidden flights...connecting you to the world.", expanded
    """)
    
    gb.configure_column('logo_x', cellRenderer=thumbnail_renderer)
+   gb.configure_column('logo_y', cellRenderer=thumbnail_renderer)
    
    grid = AgGrid(allflights,
              gridOptions=gb.build(),
