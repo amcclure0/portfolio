@@ -14,7 +14,7 @@ Origin = st.text_input("Origin Airport Code", 'ORD')
 Dest = st.text_input("Destination Airport Code")
 Date = '2024-08-01'
 
-while Dest is not None:
+while Dest is not null:
    with st.status("finding hidden flights...connecting you to the world.", expanded=True) as status:
       st.write("(step 1/3) finding layover points...")
       time.sleep(10)
