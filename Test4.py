@@ -12,7 +12,7 @@ st.subheader("Did you know that not all connecting flight combinations are searc
 
 Origin = st.text_input("Origin Airport Code", 'ORD')
 Dest = st.text_input("Destination Airport Code")
-Date = '2024-08-01'
+Date = '2024-08-03'
 
 while len(Dest)==3:
    with st.status("finding hidden flights...connecting you to the world.", expanded=True) as status:
