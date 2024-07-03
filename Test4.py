@@ -331,5 +331,5 @@ while len(Dest)==3:
                 updateMode=GridUpdateMode.MODEL_CHANGED, #VALUE_CHANGED,
                 allow_unsafe_jscode=True)
    
-      st.empty()
+      # st.empty()
       status.update(label = "your flight options are ready.", state="complete", expanded=True)
