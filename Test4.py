@@ -10,8 +10,8 @@ st.subheader("Did you know that not all connecting flight combinations are searc
 #        time.sleep(5)
 #    st.success('start exploring!')
 
-Origin = st.text_input("Origin Airport Code", 'ORD').upper
-Dest = st.text_input("Destination Airport Code").upper
+Origin = st.text_input("Origin Airport Code", 'ORD')
+Dest = st.text_input("Destination Airport Code")
 Date = '2024-08-03'
 
 while len(Dest)==3:
