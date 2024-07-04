@@ -15,6 +15,7 @@ Dest = st.text_input("Destination Airport Code")
 Date = '2024-08-03'
 
 while len(Dest)==3:
+   st.empty()
    with st.status("finding hidden flights...connecting you to the world.", expanded=True) as status:
       st.write("(step 1/3) finding layover points...")
       time.sleep(10)
@@ -333,3 +334,5 @@ while len(Dest)==3:
    
       # st.empty()
       status.update(label = "your flight options are ready.", state="complete", expanded=True)
+      Origin = None
+      Dest = None
