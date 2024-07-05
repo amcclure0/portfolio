@@ -1,6 +1,17 @@
 import streamlit as st
 import time
 from io import BytesIO
+import pandas as pd
+import requests
+import re
+from bs4 import BeautifulSoup
+import streamlit as st
+from datetime import datetime
+from datetime import timedelta
+import streamlit as st
+from st_aggrid import AgGrid, GridUpdateMode, JsCode
+from st_aggrid.grid_options_builder import GridOptionsBuilder
+import streamlit.components.v1 as components
 
 st.set_page_config(layout="wide")
 
@@ -32,18 +43,7 @@ while len(Dest)==3:
       st.write("(step 2/3) finding flights...")
       time.sleep(35)
       st.write("(step 3/3) comparing prices...")
-   
-      import pandas as pd
-      import requests
-      import re
-      from bs4 import BeautifulSoup
-      import streamlit as st
-      from datetime import datetime
-      from datetime import timedelta
-      import streamlit as st
-      from st_aggrid import AgGrid, GridUpdateMode, JsCode
-      from st_aggrid.grid_options_builder import GridOptionsBuilder
-      import streamlit.components.v1 as components
+
       
       # Origin = 'ORD'
       # Dest = 'AKL'
