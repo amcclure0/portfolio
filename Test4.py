@@ -31,8 +31,11 @@ while len(Dest)==3:
    
    @st.cache_data
    def get_image():
-      url = "https://www.flightroutes.com/routes/ORD-EDI.png"
-      r = requests.get(url)
+      URL = 'https://www.flightroutes.com/routes/{origin}-{dest}.png'.format(
+         origin = Origin.upper()
+         dest = Dest.upper()
+      )
+      r = requests.get(URL)
       return BytesIO(r.content)
 
    st.image(get_image())
