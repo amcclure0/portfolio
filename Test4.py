@@ -15,7 +15,8 @@ Dest = st.text_input("Destination Airport Code")
 Date = '2024-08-03'
 
 while len(Dest)==3:
-   st.empty()
+   # st.empty()
+   ![Image Description](upload://www.flightsfrom.com/routes/SFO.png)
    with st.status("finding hidden flights...connecting you to the world.", expanded=True) as status:
       st.write("(step 1/3) finding layover points...")
       time.sleep(10)
