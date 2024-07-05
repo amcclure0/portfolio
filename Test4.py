@@ -43,7 +43,7 @@ while len(Dest)==3:
       Nextdateraw = Convertdate + timedelta(days=1)
       Nextdate = Nextdateraw.strftime('%Y-%m-%d')
       
-      URL = 'https://direct-flights.com/chicago-{}'.format(Origin)
+      URL = 'https://direct-flights.com/chicago-{}'.format(Origin.upper)
       page = requests.get(URL)
       
       # print(page.text)
