@@ -30,7 +30,7 @@ while len(Dest)==3:
          dest = Dest.upper()
       )
       r = requests.get(URL)
-      return BytesIO(r.content, title = 'optimal connection points')
+      return BytesIO(r.content, caption = 'optimal connection points')
 
    st.image(get_image())
 
