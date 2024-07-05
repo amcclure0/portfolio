@@ -77,7 +77,7 @@ while len(Dest)==3:
       # print(URL)
       # print(origindf)
       
-      URL = 'https://direct-flights.com/chicago-{}'.format(Dest)
+      URL = 'https://direct-flights.com/chicago-{}'.format(Dest.upper)
       page = requests.get(URL)
       
       # print(page.text)
