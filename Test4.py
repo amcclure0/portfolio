@@ -1,5 +1,6 @@
 import streamlit as st
 import time
+from io import BytesIO
 
 st.set_page_config(layout="wide")
 
@@ -16,7 +17,15 @@ Date = '2024-08-03'
 
 while len(Dest)==3:
    # st.empty()
-   st.image(https://www.flightsfrom.com/routes/SFO.png)
+   
+   @st.cache_data
+   def get_image():
+      url = "https://www.flightroutes.com/routes/ORD-EDI.png"
+      r = requests.get(url)
+      return BytesIO(r.content)
+
+   st.image(get_image())
+
    with st.status("finding hidden flights...connecting you to the world.", expanded=True) as status:
       st.write("(step 1/3) finding layover points...")
       time.sleep(10)
