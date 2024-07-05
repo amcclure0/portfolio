@@ -193,7 +193,10 @@ while len(Dest)==3:
         
         for flight in flights:
             layoveriata = str(i)[61:64].upper()
-            price = str(flight.find('div', class_='BVAVmf I11szd POX3ye').text)
+            price = str(if flight.find('div', class_='BVAVmf I11szd POX3ye') is None:
+                           0
+                        else:
+                           flight.find('div', class_='BVAVmf I11szd POX3ye').text)
             cleanprice = price[price.find('$')+1:len(price)]
             time = str(flight.find('div', class_='zxVSec YMlIz tPgKwe ogfYpf').text)
             airline = str(flight.find('div', class_='sSHqwe tPgKwe ogfYpf').text)
