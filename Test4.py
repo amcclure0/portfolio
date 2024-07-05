@@ -334,5 +334,5 @@ while len(Dest)==3:
    
       # st.empty()
       status.update(label = "your flight options are ready.", state="complete", expanded=True)
-      Origin = None
-      Dest = None
+      Origin = 'X'
+      Dest = 'X'
