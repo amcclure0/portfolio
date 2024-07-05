@@ -1,14 +1,12 @@
 import streamlit as st
 import time
+from datetime import datetime
+from datetime import timedelta
 from io import BytesIO
 import pandas as pd
 import requests
 import re
 from bs4 import BeautifulSoup
-import streamlit as st
-from datetime import datetime
-from datetime import timedelta
-import streamlit as st
 from st_aggrid import AgGrid, GridUpdateMode, JsCode
 from st_aggrid.grid_options_builder import GridOptionsBuilder
 import streamlit.components.v1 as components
@@ -17,10 +15,6 @@ st.set_page_config(layout="wide")
 
 st.title("Welcome to Flight Finder")
 st.subheader("Did you know that not all connecting flight combinations are searchable on Google Flights? Flight Finder finds hidden flight itineraries not marketed by the airlines or on Google Flights.")
-
-#    with st.spinner('finding hidden flights...connecting you to the world.'):
-#        time.sleep(5)
-#    st.success('start exploring!')
 
 Origin = st.text_input("Origin Airport Code", 'ORD')
 Dest = st.text_input("Destination Airport Code")
@@ -36,7 +30,7 @@ while len(Dest)==3:
          dest = Dest.upper()
       )
       r = requests.get(URL)
-      return BytesIO(r.content, caption='optimal connection points')
+      return BytesIO(r.content, title = 'optimal connection points')
 
    st.image(get_image())
 
