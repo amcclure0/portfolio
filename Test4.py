@@ -30,9 +30,9 @@ while len(Dest)==3:
          dest = Dest.upper()
       )
       r = requests.get(URL)
-      return BytesIO(r.content, caption = "optimal connection points")
+      return BytesIO(r.content)
 
-   st.image(get_image())
+   st.image(get_image(), cpation = "recommended connection points")
 
    with st.status("finding hidden flights...connecting you to the world.", expanded=True) as status:
       st.write("(step 1/3) finding layover points...")
