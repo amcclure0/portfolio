@@ -16,7 +16,7 @@ import streamlit.components.v1 as components
 st.set_page_config(layout="wide")
 
 st.title("Welcome to Flight Finder")
-st.subheader("Did you know that not all connecting flight combinations are searchable on Google Flights? Flight Finder finds hidden flight combinations not marketed by the airlines or on Google Flights.")
+st.subheader("Did you know that not all connecting flight combinations are searchable on Google Flights? Flight Finder finds hidden flight itineraries not marketed by the airlines or on Google Flights.")
 
 #    with st.spinner('finding hidden flights...connecting you to the world.'):
 #        time.sleep(5)
@@ -36,7 +36,7 @@ while len(Dest)==3:
          dest = Dest.upper()
       )
       r = requests.get(URL)
-      return BytesIO(r.content)
+      return BytesIO(r.content, caption='optimal connection points')
 
    st.image(get_image())
 
