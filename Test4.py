@@ -16,8 +16,8 @@ st.set_page_config(layout="wide")
 st.title("Welcome to Flight Finder")
 st.subheader("Did you know that not all connecting flight combinations are searchable on Google Flights? Flight Finder finds hidden flight itineraries not marketed by the airlines or on Google Flights.")
 
-Origin = st.text_input("Origin Airport Code (use IATA 3 character code)")
-Dest = st.text_input("Destination Airport Code (use IATA 3 character code)")
+Origin = st.text_input("Origin Airport (use IATA 3 character code)")
+Dest = st.text_input("Destination Airport (use IATA 3 character code)")
 Dateraw = st.date_input("Departure Date", format="YYYY-MM-DD", label_visibility="visible")
 Date = str(Dateraw)
 
@@ -319,7 +319,7 @@ while len(Dest)==3:
       #print(allflights)
 
       displaycolumns = {'layover': 'Layover Aiport', 'logo_x': 'Leg 1 Airline', 'logo_y': 'Leg 2 Airline', 'departuretime_x': 'Leg 1 Departure', 'arrivaltime_x': 'Leg 1 Arrival', 'departuretime_y': 'Leg 2 Departure', 'arrivaltime_y': 'Leg 2 Arrival'}
-      displayflights = allflights.rename(columns = displaycolumns)[[*selector_d.values()]]
+      displayflights = allflights.rename(columns = displaycolumns)[[*displaycolumns.values()]]
       
       gb = GridOptionsBuilder.from_dataframe(allflights, editable=False)
       gb.configure_grid_options(rowHeight=65)
