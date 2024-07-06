@@ -18,7 +18,8 @@ st.subheader("Did you know that not all connecting flight combinations are searc
 
 Origin = st.text_input("Origin Airport Code (use IATA 3 character code)", 'ORD')
 Dest = st.text_input("Destination Airport Code (use IATA 3 character code)")
-Date = st.date_input("Departure Date", format="YYYY-MM-DD", label_visibility="visible")
+Dateraw = st.date_input("Departure Date", format="YYYY-MM-DD", label_visibility="visible")
+Date = Dateraw.strftime('%Y-%m-%d')
 
 while len(Dest)==3:
    # st.empty()
@@ -45,7 +46,7 @@ while len(Dest)==3:
       # Dest = 'AKL'
       # Date = '2024-08-01'
       Minlayover = 2
-      # Convertdate = datetime.strptime(Date, "%Y-%m-%d")
+      # Convertdate = datetime.strptime(Date, '%Y-%m-%d')
       Nextdateraw = Date + timedelta(days=1)
       Nextdate = Nextdateraw.strftime('%Y-%m-%d')
       
