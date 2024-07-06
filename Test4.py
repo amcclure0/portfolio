@@ -32,7 +32,7 @@ while len(Dest)==3:
       r = requests.get(URL)
       return BytesIO(r.content)
 
-   st.image(get_image(), caption = "Geographically optimal itineraries display above. All connecting itineraries display below.")
+   st.image(get_image(), caption = "Geographically optimal itineraries display above. All fesasible itineraries display below.")
 
    with st.status("finding hidden flights...connecting you to the world.", expanded=True) as status:
       st.write("(step 1/3) finding layover points...")
@@ -197,7 +197,7 @@ while len(Dest)==3:
                continue
             layoveriata = str(i)[61:64].upper()
             price = str(flight.find('div', class_='BVAVmf I11szd POX3ye').text)
-            cleanprice = price[price.find('$')+1:len(price)]
+            cleanprice = int(price[1:])
             time = str(flight.find('div', class_='zxVSec YMlIz tPgKwe ogfYpf').text)
             airline = str(flight.find('div', class_='sSHqwe tPgKwe ogfYpf').text)
             totaltime = str(flight.find('div', class_='gvkrdb AdWm1c tPgKwe ogfYpf').text)
@@ -274,7 +274,7 @@ while len(Dest)==3:
             layoveriata = str(flight.find('div', class_='QylvBf').text)[:3]
             layoverairport = str(flight.find('div', class_='QylvBf').text)[-len(str(flight.find('div', class_='QylvBf').text))+3:]
             price = str(flight.find('div', class_='BVAVmf I11szd POX3ye').text)
-            cleanprice = price[price.find('$')+1:len(price)]
+            cleanprice = int(price[1:])
             time = str(flight.find('div', class_='zxVSec YMlIz tPgKwe ogfYpf').text)
             airline = str(flight.find('div', class_='sSHqwe tPgKwe ogfYpf').text)
             totaltime = str(flight.find('div', class_='gvkrdb AdWm1c tPgKwe ogfYpf').text)
@@ -317,6 +317,9 @@ while len(Dest)==3:
       allflights = pd.merge(leg1flightsdf, leg2flightsdf, on='layover')
       
       #print(allflights)
+
+      displaycolumns = {'layover': 'Layover Aiport', 'logo_x': 'Leg 1 Airline', 'logo_y': 'Leg 2 Airline', 'departuretime_x': 'Leg 1 Departure', 'arrivaltime_x': 'Leg 1 Arrival', 'departuretime_y': 'Leg 2 Departure', 'arrivaltime_y': 'Leg 2 Arrival'}
+      displayflights = allflights.rename(columns = displaycolumns)[[*selector_d.values()]]
       
       gb = GridOptionsBuilder.from_dataframe(allflights, editable=False)
       gb.configure_grid_options(rowHeight=65)
