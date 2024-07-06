@@ -45,8 +45,8 @@ while len(Dest)==3:
       # Dest = 'AKL'
       # Date = '2024-08-01'
       Minlayover = 2
-      Convertdate = datetime.strptime(Date, "%Y-%m-%d")
-      Nextdateraw = Convertdate + timedelta(days=1)
+      # Convertdate = datetime.strptime(Date, "%Y-%m-%d")
+      Nextdateraw = Date + timedelta(days=1)
       Nextdate = Nextdateraw.strftime('%Y-%m-%d')
       
       URL = 'https://direct-flights.com/chicago-{origin}'.format(
