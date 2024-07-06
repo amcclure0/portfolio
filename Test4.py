@@ -192,7 +192,7 @@ while len(Dest)==3:
         #     print(span.text)
         
         for flight in flights:
-            if flight.find('div', class_='BVAVmf I11szd POX3ye') = None:
+            if flight.find('div', class_='BVAVmf I11szd POX3ye') == None:
                continue
             layoveriata = str(i)[61:64].upper()
             price = str(flight.find('div', class_='BVAVmf I11szd POX3ye').text)
@@ -268,7 +268,7 @@ while len(Dest)==3:
         #     print(span.text)
         
         for flight in flights:
-            if flight.find('div', class_='BVAVmf I11szd POX3ye') = None:
+            if flight.find('div', class_='BVAVmf I11szd POX3ye') == None:
                continue
             layoveriata = str(flight.find('div', class_='QylvBf').text)[:3]
             layoverairport = str(flight.find('div', class_='QylvBf').text)[-len(str(flight.find('div', class_='QylvBf').text))+3:]
