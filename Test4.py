@@ -16,10 +16,10 @@ st.set_page_config(layout="wide")
 st.title("Welcome to Flight Finder")
 st.subheader("Did you know that not all connecting flight combinations are searchable on Google Flights? Flight Finder finds hidden flight itineraries not marketed by the airlines or on Google Flights.")
 
-Origin = st.text_input("Origin Airport Code (use IATA 3 character code)", 'ORD')
+Origin = st.text_input("Origin Airport Code (use IATA 3 character code)")
 Dest = st.text_input("Destination Airport Code (use IATA 3 character code)")
 Dateraw = st.date_input("Departure Date", format="YYYY-MM-DD", label_visibility="visible")
-Date = Dateraw.strftime('%Y-%m-%d')
+Date = str(Dateraw)
 
 while len(Dest)==3:
    # st.empty()
@@ -32,7 +32,7 @@ while len(Dest)==3:
       r = requests.get(URL)
       return BytesIO(r.content)
 
-   st.image(get_image(), caption = "Geographically logical connection points shown above - all itineraries display below.")
+   st.image(get_image(), caption = "Geographically optimal itineraries display above. All connecting itineraries display below.")
 
    with st.status("finding hidden flights...connecting you to the world.", expanded=True) as status:
       st.write("(step 1/3) finding layover points...")
