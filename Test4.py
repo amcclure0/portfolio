@@ -16,9 +16,9 @@ st.set_page_config(layout="wide")
 st.title("Welcome to Flight Finder")
 st.subheader("Did you know that not all connecting flight combinations are searchable on Google Flights? Flight Finder finds hidden flight itineraries not marketed by the airlines or on Google Flights.")
 
-Origin = st.text_input("Origin Airport Code", 'ORD')
-Dest = st.text_input("Destination Airport Code")
-Date = '2024-08-03'
+Origin = st.text_input("Origin Airport Code (use IATA 3 character code)", 'ORD')
+Dest = st.text_input("Destination Airport Code (use IATA 3 character code)")
+Date = st.date_input("Departure Date", format="MM-DD-YYYY", label_visibility="visible")
 
 while len(Dest)==3:
    # st.empty()
