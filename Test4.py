@@ -32,7 +32,7 @@ while len(Dest)==3:
       r = requests.get(URL)
       return BytesIO(r.content)
 
-   st.image(get_image(), caption = "recommended connection points")
+   st.image(get_image(), caption = "Geographically logical connection points shown above - all itineraries display below.")
 
    with st.status("finding hidden flights...connecting you to the world.", expanded=True) as status:
       st.write("(step 1/3) finding layover points...")
@@ -47,7 +47,7 @@ while len(Dest)==3:
       # Date = '2024-08-01'
       Minlayover = 2
       # Convertdate = datetime.strptime(Date, '%Y-%m-%d')
-      Nextdateraw = Date + timedelta(days=1)
+      Nextdateraw = Dateraw + timedelta(days=1)
       Nextdate = Nextdateraw.strftime('%Y-%m-%d')
       
       URL = 'https://direct-flights.com/chicago-{origin}'.format(
