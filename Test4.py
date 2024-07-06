@@ -18,7 +18,7 @@ st.subheader("Did you know that not all connecting flight combinations are searc
 
 Origin = st.text_input("Origin Airport Code (use IATA 3 character code)", 'ORD')
 Dest = st.text_input("Destination Airport Code (use IATA 3 character code)")
-Date = st.date_input("Departure Date", format="YYYY-MM-DD", label_visibility="visible")
+Date = st.date_input("Departure Date", format="%Y-%m-%d", label_visibility="visible")
 
 while len(Dest)==3:
    # st.empty()
