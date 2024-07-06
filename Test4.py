@@ -10,6 +10,7 @@ from bs4 import BeautifulSoup
 from st_aggrid import AgGrid, GridUpdateMode, JsCode
 from st_aggrid.grid_options_builder import GridOptionsBuilder
 import streamlit.components.v1 as components
+import locale
 
 st.set_page_config(layout="wide")
 
@@ -197,7 +198,7 @@ while len(Dest)==3:
                continue
             layoveriata = str(i)[61:64].upper()
             price = str(flight.find('div', class_='BVAVmf I11szd POX3ye').text)
-            cleanprice = int(price[1:])
+            cleanprice = locale.atoi(price[1:])
             time = str(flight.find('div', class_='zxVSec YMlIz tPgKwe ogfYpf').text)
             airline = str(flight.find('div', class_='sSHqwe tPgKwe ogfYpf').text)
             totaltime = str(flight.find('div', class_='gvkrdb AdWm1c tPgKwe ogfYpf').text)
@@ -274,7 +275,7 @@ while len(Dest)==3:
             layoveriata = str(flight.find('div', class_='QylvBf').text)[:3]
             layoverairport = str(flight.find('div', class_='QylvBf').text)[-len(str(flight.find('div', class_='QylvBf').text))+3:]
             price = str(flight.find('div', class_='BVAVmf I11szd POX3ye').text)
-            cleanprice = int(price[1:])
+            cleanprice = locale.atoi(price[1:])
             time = str(flight.find('div', class_='zxVSec YMlIz tPgKwe ogfYpf').text)
             airline = str(flight.find('div', class_='sSHqwe tPgKwe ogfYpf').text)
             totaltime = str(flight.find('div', class_='gvkrdb AdWm1c tPgKwe ogfYpf').text)
