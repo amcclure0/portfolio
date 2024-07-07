@@ -20,8 +20,8 @@ Origin = st.text_input("Origin Airport (use IATA 3 character code)")
 Dest = st.text_input("Destination Airport (use IATA 3 character code)")
 Dateraw = st.date_input("Departure Date", format="YYYY-MM-DD", label_visibility="visible")
 Date = str(Dateraw)
-Minlayover = st.text_input("Minimum Layover (hours)", 2)
-Maxlayover = st.text_input("Maximum Layover (hours)", 6)
+Minlayover = int(st.text_input("Minimum Layover (hours)", 2))
+Maxlayover = int(st.text_input("Maximum Layover (hours)", 6))
 
 while len(Dest)==3:
    # st.empty()
