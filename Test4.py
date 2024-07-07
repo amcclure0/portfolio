@@ -351,7 +351,7 @@ while len(Dest)==3:
       gb.configure_column('Leg 1 Airline', cellRenderer=thumbnail_renderer)
       gb.configure_column('Leg 2 Airline', cellRenderer=thumbnail_renderer)
       
-      grid = AgGrid(allflights,
+      grid = AgGrid(displayflights,
                 gridOptions=gb.build(),
                 updateMode=GridUpdateMode.MODEL_CHANGED, #VALUE_CHANGED,
                 allow_unsafe_jscode=True)
