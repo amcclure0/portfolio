@@ -32,7 +32,7 @@ while len(Dest)==3:
       r = requests.get(URL)
       return BytesIO(r.content)
 
-   st.image(get_image(), caption = "Geographically optimal itineraries display above. All fesasible itineraries display below.")
+   st.image(get_image(), caption = "Sample itineraries display above. All fesasible itineraries will display below.")
 
    with st.status("finding hidden flights...connecting you to the world.", expanded=True) as status:
       st.write("(step 1/3) finding layover points...")
@@ -197,7 +197,7 @@ while len(Dest)==3:
                continue
             layoveriata = str(i)[61:64].upper()
             price = str(flight.find('div', class_='BVAVmf I11szd POX3ye').text)
-            cleanprice = int(price.replace(',','')[1:])
+            cleanprice = int(price[price.find('$')+1:len(price)].replace(',' , ''))
             time = str(flight.find('div', class_='zxVSec YMlIz tPgKwe ogfYpf').text)
             airline = str(flight.find('div', class_='sSHqwe tPgKwe ogfYpf').text)
             totaltime = str(flight.find('div', class_='gvkrdb AdWm1c tPgKwe ogfYpf').text)
@@ -274,7 +274,7 @@ while len(Dest)==3:
             layoveriata = str(flight.find('div', class_='QylvBf').text)[:3]
             layoverairport = str(flight.find('div', class_='QylvBf').text)[-len(str(flight.find('div', class_='QylvBf').text))+3:]
             price = str(flight.find('div', class_='BVAVmf I11szd POX3ye').text)
-            cleanprice = int(price.replace(',','')[1:])
+            cleanprice = int(price[price.find('$')+1:len(price)].replace(',' , ''))
             time = str(flight.find('div', class_='zxVSec YMlIz tPgKwe ogfYpf').text)
             airline = str(flight.find('div', class_='sSHqwe tPgKwe ogfYpf').text)
             totaltime = str(flight.find('div', class_='gvkrdb AdWm1c tPgKwe ogfYpf').text)
