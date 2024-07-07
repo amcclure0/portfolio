@@ -317,13 +317,17 @@ while len(Dest)==3:
       # print(leg2flightsdf)
       
       allflights = pd.merge(leg1flightsdf, leg2flightsdf, on='layover')
+      allflights['totalcost'] = allflights.cleanprice_x + allflights.cleanprice_y
+      allflights['layoverarrive'] = pd.to_datetime(allflights.arrivaltime_x)
+      allflights['layoverdepart'] = pd.to_datetime(allflights.departuretime_y)
+      allflights['layoverhours'] = (allflights['layoverdepart'] - allflights['layoverarrive'])/pd.Timedelta(hours=1)
       
-      #print(allflights)
-
-      displaycolumns = {'layover': 'Layover Aiport', 'logo_x': 'Leg 1 Airline', 'logo_y': 'Leg 2 Airline', 'departuretime_x': 'Leg 1 Departure', 'arrivaltime_x': 'Leg 1 Arrival', 'departuretime_y': 'Leg 2 Departure', 'arrivaltime_y': 'Leg 2 Arrival'}
+      displaycolumns = {'layover': 'Layover Aiport', 'logo_x': 'Leg 1 Airline', 'logo_y': 'Leg 2 Airline', 'totalcost': 'Total Cost', 'layoverhours': 'Layover Hours', 'departuretime_x': 'Leg 1 Departure', 'arrivaltime_x': 'Leg 1 Arrival', 'departuretime_y': 'Leg 2 Departure', 'arrivaltime_y': 'Leg 2 Arrival'}
       displayflights = allflights.rename(columns = displaycolumns)[[*displaycolumns.values()]]
+      displayflights = displayflights[displayflights['Layover Hours'].between(Minlayover, Maxlayover)]
+      displayflights = displayflights.sort_values(by=['Total Cost'])
       
-      gb = GridOptionsBuilder.from_dataframe(allflights, editable=False)
+      gb = GridOptionsBuilder.from_dataframe(displayflights, editable=False)
       gb.configure_grid_options(rowHeight=65)
       # gb.configure_selection(selection_mode="single", use_checkbox=True)
       
@@ -344,8 +348,8 @@ while len(Dest)==3:
         }
       """)
       
-      gb.configure_column('logo_x', cellRenderer=thumbnail_renderer)
-      gb.configure_column('logo_y', cellRenderer=thumbnail_renderer)
+      gb.configure_column('Leg 1 Airline', cellRenderer=thumbnail_renderer)
+      gb.configure_column('Leg 2 Airline', cellRenderer=thumbnail_renderer)
       
       grid = AgGrid(allflights,
                 gridOptions=gb.build(),
