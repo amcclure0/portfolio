@@ -26,15 +26,15 @@ Maxlayover = int(st.text_input("Maximum Layover (hours)", 6))
 while len(Dest)==3:
    # st.empty()
    
-   def get_image():
-      URL = 'https://www.flightroutes.com/routes/{origin}-{dest}.png'.format(
-         origin = Origin.upper(),
-         dest = Dest.upper()
-      )
-      r = requests.get(URL)
-      return BytesIO(r.content)
+   # def get_image():
+   #    URL = 'https://www.flightroutes.com/routes/{origin}-{dest}.png'.format(
+   #       origin = Origin.upper(),
+   #       dest = Dest.upper()
+   #    )
+   #    r = requests.get(URL)
+   #    return BytesIO(r.content)
 
-   st.image(get_image(), caption = "Sample itineraries display above. All fesasible itineraries will display below.")
+   # st.image(get_image(), caption = "Sample itineraries display above. All fesasible itineraries will display below.")
 
    with st.status("finding hidden flights...connecting you to the world.", expanded=True) as status:
       st.write("(step 1/3) finding layover points...")
