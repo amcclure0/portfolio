@@ -177,16 +177,16 @@ while len(Dest)==3:
       
       # print(googleurls)
       
-        layover = []
-        prices = []
-        cleanprices = []
-        times = []
-        airlines = []
-        totaltimes = []
-        stops = []
-        logourls = []
-        adttms = []
-        ddttms = []
+      layover = []
+      prices = []
+      cleanprices = []
+      times = []
+      airlines = []
+      totaltimes = []
+      stops = []
+      logourls = []
+      adttms = []
+      ddttms = []
       
       for i in googleurlsleg1:
       
