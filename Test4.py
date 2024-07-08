@@ -79,7 +79,7 @@ while len(Dest)==3:
           info = destination.text
           iata = info[info.find('(')+1:info.find(')')]
           city = info[0:info.find('(')-1]
-          iatacitystr = f"{city} {iata}."
+          iatacitystr = f"{iata} {city}."
           originiata.append(iata)
           origincity.append(city)
           originiataandcity.append(iatacitystr)
@@ -120,7 +120,7 @@ while len(Dest)==3:
           info = destination.text
           iata = info[info.find('(')+1:info.find(')')]
           city = info[0:info.find('(')-1]
-          iatacitystr = f"{city} {iata}."
+          iatacitystr = f"{iata} {city}."
           destiata.append(iata)
           destcity.append(city)
           destiataandcity.append(iatacitystr)
