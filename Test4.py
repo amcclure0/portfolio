@@ -66,31 +66,36 @@ while len(Dest)==3:
       # print(results)
       
       destinations = results.find_all('div', class_='list-value-grow')
+      origin = results.find('div', class_='panel-header-info')
       
       originiata = []
       origincity = []
+      originiataandcity = []
+      origintext = origin.text
+      completeorigin = f"{origintext[origintext.find('Departure city:')+16:origintext.find(',',origintext.find('Departure city:')+16)]} {Origin}"
       
       for destination in destinations:
-        #print(destination.text)
-        info = destination.text
-        iata = info[info.find('(')+1:info.find(')')]
-        city = info[0:info.find('(')-1]
-        originiata.append(iata)
-        origincity.append(city)
-        # print(info)
-        # print(iata)
-        # print(city)
-        # print()
-        # print(iata)
+          #print(destination.text)
+          info = destination.text
+          iata = info[info.find('(')+1:info.find(')')]
+          city = info[0:info.find('(')-1]
+          iatacitystr = f"{city} {iata}."
+          originiata.append(iata)
+          origincity.append(city)
+          originiataandcity.append(iatacitystr)
+          
+          # print(info)
+          # print(iata)
+          # print(city)
+          # print()
+          # print(iata)
       
-      origindf = pd.DataFrame({'iata':originiata,'city':origincity})
+      origindf = pd.DataFrame({'iata':originiata,'city':origincity,'iataandcity':originiataandcity})
       
       # print(URL)
       # print(origindf)
       
-      URL = 'https://direct-flights.com/chicago-{dest}'.format(
-         dest = Dest.upper()
-      )
+      URL = 'https://direct-flights.com/chicago-{}'.format(Dest)
       page = requests.get(URL)
       
       # print(page.text)
@@ -102,61 +107,72 @@ while len(Dest)==3:
       # print(results)
       
       destinations = results.find_all('div', class_='list-value-grow')
+      origin = results.find('div', class_='panel-header-info')
       
       destiata = []
       destcity = []
+      destiataandcity = []
+      desttext = origin.text
+      completedest = f"{desttext[desttext.find('Departure city:')+16:desttext.find(',',desttext.find('Departure city:')+16)]} {Dest}"
       
       for destination in destinations:
-        #print(destination.text)
-        info = destination.text
-        iata = info[info.find('(')+1:info.find(')')]
-        city = info[0:info.find('(')-1]
-        destiata.append(iata)
-        destcity.append(city)
-        # print(info)
-        # print(iata)
-        # print(city)
-        # print()
-        # print(iata)
+          #print(destination.text)
+          info = destination.text
+          iata = info[info.find('(')+1:info.find(')')]
+          city = info[0:info.find('(')-1]
+          iatacitystr = f"{city} {iata}."
+          destiata.append(iata)
+          destcity.append(city)
+          destiataandcity.append(iatacitystr)
       
-      destdf = pd.DataFrame({'iata':destiata,'city':destcity})
+          # print(info)
+          # print(iata)
+          # print(city)
+          # print()
+          # print(iata)
       
-      layoverpoints = pd.merge(origindf, destdf, on=['iata','city'], how='inner')
+      destdf = pd.DataFrame({'iata':destiata,'city':destcity,'iataandcity':destiataandcity})
+      
+      layoverpoints = pd.merge(origindf, destdf, on=['iata','city','iataandcity'], how='inner')
       # print(layoverpoints)
+      
+      # print(completeorigin)
+      # print(completedest)
+      
       
       googleurlsleg1 = []
       googleurlsleg2 = []
       
-      for i in layoverpoints.iata:
-        googleurlsleg1 += [
-        'https://www.google.com/travel/flights?hl=en&q=Flights%20to%20{dest}%20from%20{origin}%20on%20{date}%20oneway%20nonstop'.format(
-            dest = i.lower(),
-            origin = Origin.lower(),
-            date = Date
-        )
-        ]
-        googleurlsleg1 += [
-        'https://www.google.com/travel/flights?hl=en&q=Flights%20to%20{dest}%20from%20{origin}%20on%20{date}%20oneway%20nonstop'.format(
-            dest = i.lower(),
-            origin = Origin.lower(),
-            date = Nextdate
-        )
+      for i in layoverpoints.iataandcity:
+          googleurlsleg1 += [
+          'https://www.google.com/travel/flights?hl=en&q=Flights%20to%20{dest}%20from%20{origin}%20on%20{date}%20oneway%20nonstop'.format(
+              dest = i.lower(),
+              origin = completeorigin.lower(),
+              date = Date
+          )
+          ]
+          googleurlsleg1 += [
+          'https://www.google.com/travel/flights?hl=en&q=Flights%20to%20{dest}%20from%20{origin}%20on%20{date}%20oneway%20nonstop'.format(
+              dest = i.lower(),
+              origin = completeorigin.lower(),
+              date = Nextdate
+          )
       ]
       
-      for i in layoverpoints.iata:
-        googleurlsleg2 += [
-        'https://www.google.com/travel/flights?hl=en&q=Flights%20to%20{dest}%20from%20{origin}%20on%20{date}%20oneway%20nonstop'.format(
-            dest = Dest.lower(),
-            origin = i.lower(),
-            date = Date
-        )
-        ]
-        googleurlsleg2 += [
-        'https://www.google.com/travel/flights?hl=en&q=Flights%20to%20{dest}%20from%20{origin}%20on%20{date}%20oneway%20nonstop'.format(
-            dest = Dest.lower(),
-            origin = i.lower(),
-            date = Nextdate
-        )
+      for i in layoverpoints.iataandcity:
+          googleurlsleg2 += [
+          'https://www.google.com/travel/flights?hl=en&q=Flights%20to%20{dest}%20from%20{origin}%20on%20{date}%20oneway%20nonstop'.format(
+              dest = completedest.lower(),
+              origin = i.lower(),
+              date = Date
+          )
+          ]
+          googleurlsleg2 += [
+          'https://www.google.com/travel/flights?hl=en&q=Flights%20to%20{dest}%20from%20{origin}%20on%20{date}%20oneway%20nonstop'.format(
+              dest = completedest.lower(),
+              origin = i.lower(),
+              date = Nextdate
+          )
       ]
       
       # print(googleurls)
