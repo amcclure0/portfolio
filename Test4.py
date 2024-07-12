@@ -13,7 +13,7 @@ import streamlit.components.v1 as components
 
 st.set_page_config(layout="wide")
 
-left, middle, right = st.columns([1,1,4)
+left, middle, right = st.columns([1,1,4])
 
 st.title("Welcome to Flight Finder")
 st.subheader("Did you know that not all connecting flight combinations are searchable on Google Flights? Flight Finder finds hidden flight itineraries not marketed by the airlines or on Google Flights.")
