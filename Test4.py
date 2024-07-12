@@ -28,7 +28,8 @@ Maxlayover = int(left.text_input("Maximum Layover (hours)", 6))
 
 while len(Dest)==3:
    # st.empty()
-   
+
+   right.write('Flights Options to XX')
    def get_image():
    #    URL = 'https://www.flightroutes.com/routes/{origin}-{dest}.png'.format(
       URL = 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRTHETZVxU4_OrKq24sf7n7HS_0ca3__1_Urs251dzMXLn16tZy8J8x5i1phGimLkrbGL2gDKGrA-U35g&quot'
