@@ -13,15 +13,15 @@ import streamlit.components.v1 as components
 
 st.set_page_config(layout="wide")
 
+st.title("Welcome to Flight Finder")
+st.subheader("Did you know that not all connecting flight combinations are searchable on Google Flights? Flight Finder finds hidden flight itineraries not marketed by the airlines or on Google Flights.")
+
 left, right = st.columns([2,4])
 full = st.columns([1])
 
-full.title("Welcome to Flight Finder")
-st.subheader("Did you know that not all connecting flight combinations are searchable on Google Flights? Flight Finder finds hidden flight itineraries not marketed by the airlines or on Google Flights.")
-
 Origin = left.text_input("Origin Airport (use IATA 3 character code)")
-Dest = st.text_input("Destination Airport (use IATA 3 character code)")
-Dateraw = st.date_input("Departure Date", format="YYYY-MM-DD", label_visibility="visible")
+Dest = left.text_input("Destination Airport (use IATA 3 character code)")
+Dateraw = left.date_input("Departure Date", format="YYYY-MM-DD", label_visibility="visible")
 Date = str(Dateraw)
 Minlayover = int(st.text_input("Minimum Layover (hours)", 2))
 Maxlayover = int(st.text_input("Maximum Layover (hours)", 6))
