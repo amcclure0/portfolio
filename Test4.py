@@ -39,7 +39,7 @@ while len(Dest)==3:
       r = requests.get(URL)
       return BytesIO(r.content)
 
-   right.image(get_image(), caption = "Sample itineraries display above. All fesasible itineraries will display below.")
+   right.image(get_image())
 
    with st.status("finding hidden flights...connecting you to the world.", expanded=True) as status:
       st.write("(step 1/3) finding layover points...")
