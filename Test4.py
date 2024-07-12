@@ -11,14 +11,12 @@ from st_aggrid import AgGrid, GridUpdateMode, JsCode
 from st_aggrid.grid_options_builder import GridOptionsBuilder
 import streamlit.components.v1 as components
 
-col, buff = st.beta_columns([1,6])
-
 st.set_page_config(layout="wide")
 
 st.title("Welcome to Flight Finder")
 st.subheader("Did you know that not all connecting flight combinations are searchable on Google Flights? Flight Finder finds hidden flight itineraries not marketed by the airlines or on Google Flights.")
 
-Origin = col.text_input("Origin Airport (use IATA 3 character code)")
+Origin = st.text_input("Origin Airport (use IATA 3 character code)"){width: 25%;}
 Dest = st.text_input("Destination Airport (use IATA 3 character code)")
 Dateraw = st.date_input("Departure Date", format="YYYY-MM-DD", label_visibility="visible")
 Date = str(Dateraw)
