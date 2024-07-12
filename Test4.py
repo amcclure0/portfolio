@@ -31,12 +31,12 @@ while len(Dest)==3:
    
    # def get_image():
    #    URL = 'https://www.flightroutes.com/routes/{origin}-{dest}.png'.format(
-      URL = 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRTHETZVxU4_OrKq24sf7n7HS_0ca3__1_Urs251dzMXLn16tZy8J8x5i1phGimLkrbGL2gDKGrA-U35g&quot'
+   URL = 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRTHETZVxU4_OrKq24sf7n7HS_0ca3__1_Urs251dzMXLn16tZy8J8x5i1phGimLkrbGL2gDKGrA-U35g&quot'
    #       origin = Origin.upper(),
    #       dest = Dest.upper()
    #    )
-      r = requests.get(URL)
-      return BytesIO(r.content)
+   r = requests.get(URL)
+   return BytesIO(r.content)
 
    right.image(get_image(), caption = "Sample itineraries display above. All fesasible itineraries will display below.")
 
