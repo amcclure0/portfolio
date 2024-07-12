@@ -13,10 +13,12 @@ import streamlit.components.v1 as components
 
 st.set_page_config(layout="wide")
 
+buff, col, buff2 = st.beta_columns([1,3,1])
+
 st.title("Welcome to Flight Finder")
 st.subheader("Did you know that not all connecting flight combinations are searchable on Google Flights? Flight Finder finds hidden flight itineraries not marketed by the airlines or on Google Flights.")
 
-Origin = st.text_input("Origin Airport (use IATA 3 character code)"){width: 25%;}
+Origin = col.text_input("Origin Airport (use IATA 3 character code)")
 Dest = st.text_input("Destination Airport (use IATA 3 character code)")
 Dateraw = st.date_input("Departure Date", format="YYYY-MM-DD", label_visibility="visible")
 Date = str(Dateraw)
