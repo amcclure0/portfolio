@@ -13,9 +13,10 @@ import streamlit.components.v1 as components
 
 st.set_page_config(layout="wide")
 
-left, middle, right = st.columns([1,1,4])
+left, right = st.columns([2,4])
+full = st.columns([1])
 
-st.title("Welcome to Flight Finder")
+full.title("Welcome to Flight Finder")
 st.subheader("Did you know that not all connecting flight combinations are searchable on Google Flights? Flight Finder finds hidden flight itineraries not marketed by the airlines or on Google Flights.")
 
 Origin = left.text_input("Origin Airport (use IATA 3 character code)")
