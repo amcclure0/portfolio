@@ -16,8 +16,7 @@ st.set_page_config(layout="wide")
 st.title("Welcome to Flight Finder")
 st.subheader("Did you know that not all connecting flight combinations are searchable on Google Flights? Flight Finder finds hidden flight itineraries not marketed by the airlines or on Google Flights.")
 
-left, mid, right = st.columns([2,2,2.6])
-full = st.columns([1])
+left, right = st.columns([2,4])
 
 Origin = left.text_input("Origin Airport (use IATA 3 character code)")
 Dest = left.text_input("Destination Airport (use IATA 3 character code)")
@@ -27,8 +26,7 @@ Minlayover = int(left.text_input("Minimum Layover (hours)", 2))
 Maxlayover = int(left.text_input("Maximum Layover (hours)", 6))
 
 while len(Dest)==3:
-   # st.empty()
-
+   
    right.subheader('Flights Options to XX')
    def get_image():
    #    URL = 'https://www.flightroutes.com/routes/{origin}-{dest}.png'.format(
