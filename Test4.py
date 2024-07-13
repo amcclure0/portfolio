@@ -135,6 +135,8 @@ while len(Dest)==3:
 
    right.image(get_image())
 
+   break
+
 while len(Origin)==3 and len(Dest)==3:
    with st.status("finding hidden flights...connecting you to the world.", expanded=True) as status:
       st.write("(step 1/3) finding layover points...")
