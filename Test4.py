@@ -135,28 +135,6 @@ while len(Dest)==3:
           # print(iata)
       
       destdf = pd.DataFrame({'iata':destiata,'city':destcity,'iataandcity':destiataandcity})
-
-      ###DISPLAY DEST IMAGE###
-      destcity = completedest[1:len(completedest)-3]
-      URL = 'https://stock.adobe.com/search?1&k={}&order=relevance'.format(f"{destcity} Skyline")
-
-      page = requests.get(URL)
-
-      soup = BeautifulSoup(page.content, "html.parser")
-
-      results = soup.find(id='mosaic-container')
-
-      cityimgraw = str(results.find('div', class_='search-result-cell small-bottom-spacing js-search-result-cell ftl-thumb-mosaic js-hover-container'))
-    
-      cityimg = cityimgraw[cityimgraw.find('src=')+5:cityimgraw.find('"/>',cityimgraw.find('src=')+4)]
-
-      def get_image():
-         URL = '{cityimg}'
-         r = requests.get(URL)
-         return BytesIO(r.content)
-   
-      right.image(get_image())
-      ###
       
       layoverpoints = pd.merge(origindf, destdf, on=['iata','city','iataandcity'], how='inner')
       # print(layoverpoints)
