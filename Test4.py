@@ -118,6 +118,8 @@ while len(Dest)==3:
    destcity = completedest[1:len(completedest)-3]
    URL = 'https://stock.adobe.com/search?1&k={}&order=relevance'.format(f"{destcity} Skyline")
 
+   st.write({URL})
+
    page = requests.get(URL)
 
    soup = BeautifulSoup(page.content, "html.parser")
