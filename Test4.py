@@ -153,7 +153,7 @@ while len(Dest)==3:
           # print(iata)
       
       destdf = pd.DataFrame({'iata':destiata,'city':destcity,'iataandcity':destiataandcity})
-break
+
 while len(Dest)==3:
       
       layoverpoints = pd.merge(origindf, destdf, on=['iata','city','iataandcity'], how='inner')
