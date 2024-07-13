@@ -22,14 +22,100 @@ Origin = left.text_input("Origin Airport (use IATA 3 character code)")
 Dest = left.text_input("Destination Airport (use IATA 3 character code)")
 Dateraw = left.date_input("Departure Date", format="YYYY-MM-DD", label_visibility="visible")
 Date = str(Dateraw)
+Nextdateraw = Dateraw + timedelta(days=1)
+Nextdate = Nextdateraw.strftime('%Y-%m-%d')
 Minlayover = int(left.text_input("Minimum Layover (hours)", 2))
 Maxlayover = int(left.text_input("Maximum Layover (hours)", 6))
 
 while len(Dest)==3:
+
+   URL = 'https://direct-flights.com/chicago-{origin}'.format(
+      origin = Origin.upper()
+   )
+   page = requests.get(URL)
    
+   # print(page.text)
+   
+   soup = BeautifulSoup(page.content, "html.parser")
+   
+   results = soup.find(id='root')
+   
+   # print(results)
+   
+   destinations = results.find_all('div', class_='list-value-grow')
+   origin = results.find('div', class_='panel-header-info')
+   
+   originiata = []
+   origincity = []
+   originiataandcity = []
+   origintext = origin.text
+   completeorigin = f"{origintext[origintext.find('Departure city:')+16:origintext.find(',',origintext.find('Departure city:')+16)]} {Origin}"
+   
+   for destination in destinations:
+       #print(destination.text)
+       info = destination.text
+       iata = info[info.find('(')+1:info.find(')')]
+       city = info[0:info.find('(')-1]
+       iatacitystr = f"{iata} {city}."
+       originiata.append(iata)
+       origincity.append(city)
+       originiataandcity.append(iatacitystr)
+       
+       # print(info)
+       # print(iata)
+       # print(city)
+       # print()
+       # print(iata)
+   
+   origindf = pd.DataFrame({'iata':originiata,'city':origincity,'iataandcity':originiataandcity})
+
+   URL = 'https://direct-flights.com/chicago-{}'.format(Dest)
+   page = requests.get(URL)
+   
+   # print(page.text)
+   
+   soup = BeautifulSoup(page.content, "html.parser")
+   
+   results = soup.find(id='root')
+   
+   # print(results)
+   
+   destinations = results.find_all('div', class_='list-value-grow')
+   origin = results.find('div', class_='panel-header-info')
+   
+   destiata = []
+   destcity = []
+   destiataandcity = []
+   desttext = origin.text
+   completedest = f"{desttext[desttext.find('Departure city:')+16:desttext.find(',',desttext.find('Departure city:')+16)]} {Dest}"
+   
+   for destination in destinations:
+       #print(destination.text)
+       info = destination.text
+       iata = info[info.find('(')+1:info.find(')')]
+       city = info[0:info.find('(')-1]
+       iatacitystr = f"{iata} {city}."
+       destiata.append(iata)
+       destcity.append(city)
+       destiataandcity.append(iatacitystr)
+   
+       # print(info)
+       # print(iata)
+       # print(city)
+       # print()
+       # print(iata)
+   
+   destdf = pd.DataFrame({'iata':destiata,'city':destcity,'iataandcity':destiataandcity})
+   
+   layoverpoints = pd.merge(origindf, destdf, on=['iata','city','iataandcity'], how='inner')
+   # print(layoverpoints)
+   
+   # print(completeorigin)
+   # print(completedest)
+      
    right.subheader('Flights Options to XX')
    ###DISPLAY DEST IMAGE###
-   destcity = Dest #completedest[1:len(completedest)-3]
+   destcity = completedest[1:len(completedest)-3]
    URL = 'https://stock.adobe.com/search?1&k={}&order=relevance'.format(f"{destcity} Skyline")
 
    page = requests.get(URL)
@@ -48,118 +134,14 @@ while len(Dest)==3:
       return BytesIO(r.content)
 
    right.image(get_image())
-   ###
-   def get_image():
-      URL = 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRTHETZVxU4_OrKq24sf7n7HS_0ca3__1_Urs251dzMXLn16tZy8J8x5i1phGimLkrbGL2gDKGrA-U35g&quot'
 
-      r = requests.get(URL)
-      return BytesIO(r.content)
-
-   right.image(get_image())
-
+while len(Origin)==3 and len(Dest)==3:
    with st.status("finding hidden flights...connecting you to the world.", expanded=True) as status:
       st.write("(step 1/3) finding layover points...")
       time.sleep(10)
       st.write("(step 2/3) finding flights...")
       time.sleep(35)
       st.write("(step 3/3) comparing prices...")
-
-      
-      # Origin = 'ORD'
-      # Dest = 'AKL'
-      # Date = '2024-08-01'
-      # Minlayover = 2
-      # Convertdate = datetime.strptime(Date, '%Y-%m-%d')
-      Nextdateraw = Dateraw + timedelta(days=1)
-      Nextdate = Nextdateraw.strftime('%Y-%m-%d')
-      
-      URL = 'https://direct-flights.com/chicago-{origin}'.format(
-         origin = Origin.upper()
-      )
-      page = requests.get(URL)
-      
-      # print(page.text)
-      
-      soup = BeautifulSoup(page.content, "html.parser")
-      
-      results = soup.find(id='root')
-      
-      # print(results)
-      
-      destinations = results.find_all('div', class_='list-value-grow')
-      origin = results.find('div', class_='panel-header-info')
-      
-      originiata = []
-      origincity = []
-      originiataandcity = []
-      origintext = origin.text
-      completeorigin = f"{origintext[origintext.find('Departure city:')+16:origintext.find(',',origintext.find('Departure city:')+16)]} {Origin}"
-      
-      for destination in destinations:
-          #print(destination.text)
-          info = destination.text
-          iata = info[info.find('(')+1:info.find(')')]
-          city = info[0:info.find('(')-1]
-          iatacitystr = f"{iata} {city}."
-          originiata.append(iata)
-          origincity.append(city)
-          originiataandcity.append(iatacitystr)
-          
-          # print(info)
-          # print(iata)
-          # print(city)
-          # print()
-          # print(iata)
-      
-      origindf = pd.DataFrame({'iata':originiata,'city':origincity,'iataandcity':originiataandcity})
-      
-      # print(URL)
-      # print(origindf)
-      
-      URL = 'https://direct-flights.com/chicago-{}'.format(Dest)
-      page = requests.get(URL)
-      
-      # print(page.text)
-      
-      soup = BeautifulSoup(page.content, "html.parser")
-      
-      results = soup.find(id='root')
-      
-      # print(results)
-      
-      destinations = results.find_all('div', class_='list-value-grow')
-      origin = results.find('div', class_='panel-header-info')
-      
-      destiata = []
-      destcity = []
-      destiataandcity = []
-      desttext = origin.text
-      completedest = f"{desttext[desttext.find('Departure city:')+16:desttext.find(',',desttext.find('Departure city:')+16)]} {Dest}"
-      
-      for destination in destinations:
-          #print(destination.text)
-          info = destination.text
-          iata = info[info.find('(')+1:info.find(')')]
-          city = info[0:info.find('(')-1]
-          iatacitystr = f"{iata} {city}."
-          destiata.append(iata)
-          destcity.append(city)
-          destiataandcity.append(iatacitystr)
-      
-          # print(info)
-          # print(iata)
-          # print(city)
-          # print()
-          # print(iata)
-      
-      destdf = pd.DataFrame({'iata':destiata,'city':destcity,'iataandcity':destiataandcity})
-      
-      layoverpoints = pd.merge(origindf, destdf, on=['iata','city','iataandcity'], how='inner')
-      # print(layoverpoints)
-      
-      # print(completeorigin)
-      # print(completedest)
-      
       
       googleurlsleg1 = []
       googleurlsleg2 = []
