@@ -28,12 +28,30 @@ Maxlayover = int(left.text_input("Maximum Layover (hours)", 6))
 while len(Dest)==3:
    
    right.subheader('Flights Options to XX')
+   ###DISPLAY DEST IMAGE###
+   destcity = Dest #completedest[1:len(completedest)-3]
+   URL = 'https://stock.adobe.com/search?1&k={}&order=relevance'.format(f"{destcity} Skyline")
+
+   page = requests.get(URL)
+
+   soup = BeautifulSoup(page.content, "html.parser")
+
+   results = soup.find(id='mosaic-container')
+
+   cityimgraw = str(results.find('div', class_='search-result-cell small-bottom-spacing js-search-result-cell ftl-thumb-mosaic js-hover-container'))
+ 
+   cityimg = cityimgraw[cityimgraw.find('src=')+5:cityimgraw.find('"/>',cityimgraw.find('src=')+4)]
+
    def get_image():
-   #    URL = 'https://www.flightroutes.com/routes/{origin}-{dest}.png'.format(
+      URL = '{cityimg}'
+      r = requests.get(URL)
+      return BytesIO(r.content)
+
+   right.image(get_image())
+   ###
+   def get_image():
       URL = 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRTHETZVxU4_OrKq24sf7n7HS_0ca3__1_Urs251dzMXLn16tZy8J8x5i1phGimLkrbGL2gDKGrA-U35g&quot'
-   #       origin = Origin.upper(),
-   #       dest = Dest.upper()
-   #    )
+
       r = requests.get(URL)
       return BytesIO(r.content)
 
