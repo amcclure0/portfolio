@@ -134,8 +134,7 @@ while len(Dest)==3:
       r = requests.get(URL)
       return BytesIO(r.content)
 
-   test = get_image().resize(600,400)
-   right.image(test)
+   right.image(get_image())
 
    break
 
