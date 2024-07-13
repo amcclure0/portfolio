@@ -43,7 +43,7 @@ while len(Dest)==3:
    cityimg = cityimgraw[cityimgraw.find('src=')+5:cityimgraw.find('"/>',cityimgraw.find('src=')+4)]
 
    def get_image():
-      URL = '{cityimg}'
+      URL = cityimg
       r = requests.get(URL)
       return BytesIO(r.content)
 
