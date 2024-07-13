@@ -10,6 +10,7 @@ from bs4 import BeautifulSoup
 from st_aggrid import AgGrid, GridUpdateMode, JsCode
 from st_aggrid.grid_options_builder import GridOptionsBuilder
 import streamlit.components.v1 as components
+from PIL import Image
 
 st.set_page_config(layout="wide")
 
@@ -133,7 +134,7 @@ while len(Dest)==3:
       r = requests.get(URL)
       return BytesIO(r.content)
 
-   right.image(get_image())
+   right.image(get_image().resize(600, 400))
 
    break
 
