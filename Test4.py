@@ -116,7 +116,7 @@ while len(Dest)==3:
    right.subheader('Flights Options to XX')
    ###DISPLAY DEST IMAGE###
    destcity = completedest[0:len(completedest)-3]
-   URL = 'https://stock.adobe.com/search?1&k={}&order=relevance&content_type%20photo%20=%201%20orientation%20=%20horizontal'.format(f"{destcity} Skyline")
+   URL = 'https://stock.adobe.com/search?filters%5Bcontent_type%3Aphoto%5D=1&filters%5Bcontent_type%3Aillustration%5D=0&filters%5Bcontent_type%3Azip_vector%5D=0&filters%5Bcontent_type%3Avideo%5D=0&filters%5Bcontent_type%3Atemplate%5D=0&filters%5Bcontent_type%3A3d%5D=0&filters%5Bcontent_type%3Aaudio%5D=0&filters%5Binclude_stock_enterprise%5D=0&filters%5Bis_editorial%5D=0&filters%5Bfree_collection%5D=0&filters%5Bcontent_type%3Aimage%5D=1&k={}&order=relevance&safe_search=1&search_type=filter-select&get_facets=1'.format(f"{destcity} Skyline")
    
    page = requests.get(URL)
 
