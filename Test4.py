@@ -364,36 +364,36 @@ while len(Dest)==3:
       displayflights = displayflights[displayflights['Layover Hours'].between(Minlayover, Maxlayover)]
       displayflights = displayflights.sort_values(by=['Total Cost'])
       
-      gb = GridOptionsBuilder.from_dataframe(displayflights, editable=False)
-      gb.configure_grid_options(rowHeight=65)
-      # gb.configure_selection(selection_mode="single", use_checkbox=True)
+         gb = GridOptionsBuilder.from_dataframe(displayflights, editable=False)
+         gb.configure_grid_options(rowHeight=65)
+         # gb.configure_selection(selection_mode="single", use_checkbox=True)
+         
+         thumbnail_renderer = JsCode("""
+           class ThumbnailRenderer {
+               init(params) {
+         
+               this.eGui = document.createElement('img');
+               this.eGui.setAttribute('src', params.value);
+               this.eGui.setAttribute('width', '60');
+               this.eGui.setAttribute('height', '60');
+               }
+                   getGui() {
+                   console.log(this.eGui);
+         
+                   return this.eGui;
+               }
+           }
+         """)
+         
+         gb.configure_column('Leg 1 Airline', cellRenderer=thumbnail_renderer)
+         gb.configure_column('Leg 2 Airline', cellRenderer=thumbnail_renderer)
+         
+         grid = AgGrid(displayflights,
+                   gridOptions=gb.build(),
+                   updateMode=GridUpdateMode.MODEL_CHANGED, #VALUE_CHANGED,
+                   allow_unsafe_jscode=True)
       
-      thumbnail_renderer = JsCode("""
-        class ThumbnailRenderer {
-            init(params) {
-      
-            this.eGui = document.createElement('img');
-            this.eGui.setAttribute('src', params.value);
-            this.eGui.setAttribute('width', '60');
-            this.eGui.setAttribute('height', '60');
-            }
-                getGui() {
-                console.log(this.eGui);
-      
-                return this.eGui;
-            }
-        }
-      """)
-      
-      gb.configure_column('Leg 1 Airline', cellRenderer=thumbnail_renderer)
-      gb.configure_column('Leg 2 Airline', cellRenderer=thumbnail_renderer)
-      
-      grid = AgGrid(displayflights,
-                gridOptions=gb.build(),
-                updateMode=GridUpdateMode.MODEL_CHANGED, #VALUE_CHANGED,
-                allow_unsafe_jscode=True)
-   
-      # st.empty()
-      status.update(label = "your flight options are ready.", state="complete", expanded=True)
-      Origin = 'X'
-      Dest = 'X'
+         # st.empty()
+         status.update(label = "your flight options are ready.", state="complete", expanded=True)
+         Origin = 'X'
+         Dest = 'X'
