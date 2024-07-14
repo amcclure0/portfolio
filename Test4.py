@@ -25,7 +25,7 @@ st.markdown(
 #         background: url('https://github.com/amcclure0/portfolio/blob/main/Boeing%20777%20Background.png?raw=true');
 #         background-size: cover;
 #     }
-      [data-testid=stAppViewContainer {
+      .appview-container.main.block-container {
          padding-top: 0rem;
       }
    </style>
