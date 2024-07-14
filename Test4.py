@@ -18,8 +18,8 @@ custom_html = """
 </div>
 <style>
     .banner {
-        width: 100%;
-        height: 100px;
+        width: 160%;
+        height: 150px;
         overflow: hidden;
     }
     .banner img {
