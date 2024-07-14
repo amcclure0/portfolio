@@ -26,7 +26,7 @@ st.markdown(margins_css, unsafe_allow_html=True)
 
 custom_html = """
 <div class="banner">
-    <img src="https://github.com/amcclure0/portfolio/blob/main/clouds-banner.jpg?raw=true" alt="Banner Image">
+    <img src="https://github.com/amcclure0/portfolio/blob/main/Boeing%20787%20Background%20(reduced).png?raw=true" alt="Banner Image">
 </div>
 <style>
     .header, .footer, .Toolbar, .MainMenu {
