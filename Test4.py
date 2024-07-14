@@ -40,7 +40,7 @@ custom_html = """
     }
     .banner {
         width: 100%;
-        height: 150px;
+        height: 100%;
         overflow: visible;
         object-fit: cover;
     }
