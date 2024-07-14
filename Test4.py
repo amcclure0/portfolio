@@ -24,7 +24,7 @@ custom_html = """
         object-fit: fill;
     }
     .banner img {
-        width: 160%;
+        width: 1920px%;
         object-fit: fill;
     }
 </style>
