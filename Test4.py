@@ -29,6 +29,7 @@ custom_html = """
     <img src="https://github.com/amcclure0/portfolio/blob/main/clouds-banner.jpg?raw=true" alt="Banner Image">
 </div>
 <style>
+    header {visibility: hidden;}
     .banner {
         width: 120%;
         height: 150px;
@@ -41,7 +42,7 @@ custom_html = """
     }
 </style>
 """
-st.components.v1.html(custom_html(header=False))
+st.components.v1.html(custom_html)
 st.title("Welcome to Flight Finder")
 st.markdown("Did you know that not all connecting flight itineraries are searchable on popular travel search engines like Google Flights? Flight Finder finds flight itineraries not marketed by the airlines or on Google Flights.  Whether you're dealing with a cancelled flight and need to find all options to get to your destination fast or are just looking for better prices or times Flight Finder can help.")
 left, right = st.columns([2,4])
