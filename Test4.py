@@ -21,10 +21,11 @@ custom_html = """
         width: 160%;
         height: 150px;
         overflow: hidden;
+        object-fit: fill;
     }
     .banner img {
-        width: 100%;
-        object-fit: cover;
+        width: 160%;
+        object-fit: fill;
     }
 </style>
 """
