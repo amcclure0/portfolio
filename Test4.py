@@ -16,7 +16,7 @@ st.set_page_config(layout="wide")
 margins_css = """
     <style>
         .main > div {
-            padding-left: 0rem;
+            padding-left: 5rem;
             padding-right: 0rem;
         }
     </style>
