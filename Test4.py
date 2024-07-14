@@ -14,12 +14,12 @@ import streamlit.components.v1 as components
 st.set_page_config(layout="wide")
 custom_html = """
 <div class="banner">
-    <img src="https://github.com/amcclure0/portfolio/blob/main/Boeing%20777%20Background.png?raw=true" alt="Banner Image">
+    <img src="https://github.com/amcclure0/portfolio/blob/main/clouds-banner.jpg?raw=true" alt="Banner Image">
 </div>
 <style>
     .banner {
-        width: 160%;
-        height: 200px;
+        width: 100%;
+        height: 100px;
         overflow: hidden;
     }
     .banner img {
