@@ -39,14 +39,14 @@ custom_html = """
         height: 100vh;
     }
     .banner {
-        width: 120%;
+        width: 100%;
         height: 150px;
-        overflow: hidden;
-        object-fit: visible;
+        overflow: visible;
+        object-fit: cover;
     }
     .banner img {
-        width: 120%;
-        object-fit: visible;
+        width: 100%;
+        object-fit: cover;
     }
 </style>
 """
