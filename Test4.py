@@ -18,7 +18,7 @@ st.markdown(
     """
     <style>
     [data-testid=stAppViewContainer] {
-        background: url('https://i.pinimg.com/736x/a7/92/f9/a792f931fa9ca126f63de33d0c64307d.jpg');
+        background: url('https://i.pinimg.com/736x/a7/92/f9/a792f931fa9ca126f63de33d0c64307d.jpg') width = 1920;
     }
    </style>
     """,
