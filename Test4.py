@@ -30,6 +30,7 @@ custom_html = """
 </div>
 <style>
     .header {visibility: hidden;}
+    .block-container{padding-top:2rem;}
     .banner {
         width: 120%;
         height: 150px;
