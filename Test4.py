@@ -39,7 +39,7 @@ custom_html = """
         height: 100vh;
     }
     .banner {
-        width: 100%;
+        width: 110%;
         height: 100%;
         overflow: visible;
         object-fit: cover;
