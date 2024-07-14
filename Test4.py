@@ -17,7 +17,7 @@ st.set_page_config(layout="wide")
 st.markdown(
     """
     <style>
-    .reportview-container {
+    .stAppViewContainer {
         background: url('https://i.pinimg.com/736x/a7/92/f9/a792f931fa9ca126f63de33d0c64307d.jpg');
     }
    </style>
