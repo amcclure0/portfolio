@@ -30,13 +30,13 @@ custom_html = """
 </div>
 <style>
     .banner {
-        width: 1920px;
+        width: 120%;
         height: 150px;
         overflow: hidden;
         object-fit: fill;
     }
     .banner img {
-        width: 1920px%;
+        width: 120%;
         object-fit: fill;
     }
 </style>
