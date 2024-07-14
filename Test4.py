@@ -13,7 +13,8 @@ import streamlit.components.v1 as components
 
 st.set_page_config(layout="wide")
 st.title("Welcome to Flight Finder")
-st.subheader("Did you know that not all connecting flight itineraries are searchable on popular travel search engines like Google Flights? Flight Finder finds flight itineraries not marketed by the airlines or on Google Flights. Whether you're dealing with a cancelled flight and need to find all options to get to your destination fast or are looking for a better price or time for your flight Flight Finder can help.")
+st.markdown("Did you know that not all connecting flight itineraries are searchable on popular travel search engines like Google Flights? Flight Finder finds flight itineraries not marketed by the airlines or on Google Flights.
+Whether you're dealing with a cancelled flight and need to find all options to get to your destination fast or are just looking for a better prices or times Flight Finder can help.")
 left, right = st.columns([2,4])
 right.image('https://github.com/amcclure0/portfolio/blob/main/Boeing%20777%20Background%20(reduced).png?raw=true', width = 900)
 
