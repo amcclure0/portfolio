@@ -36,7 +36,7 @@ custom_html = """
     and overrides its default styling */
     section[data-testid="stSidebar"] div:first-child {
         top: 0;
-        height: 100vh;
+        height: 120vh;
     }
     .banner {
         width: 102%;
