@@ -18,7 +18,7 @@ custom_html = """
 </div>
 <style>
     .banner {
-        width: 160%;
+        width: 1920px;
         height: 150px;
         overflow: hidden;
         object-fit: fill;
