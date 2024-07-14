@@ -14,6 +14,17 @@ from PIL import Image
 
 st.set_page_config(layout="wide")
 
+st.markdown(
+    """
+    <style>
+    .reportview-container {
+        background: url("https://www.pinterest.com/pin/globe-world-grey-transparent-background-png-clipart--569283209151500207/");
+    }
+   </style>
+    """,
+    unsafe_allow_html=True
+)
+
 st.title("Welcome to Flight Finder")
 st.subheader("Did you know that not all connecting flight combinations are searchable on Google Flights? Flight Finder finds hidden flight itineraries not marketed by the airlines or on Google Flights.")
 
