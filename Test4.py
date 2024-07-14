@@ -29,7 +29,7 @@ custom_html = """
     <img src="https://github.com/amcclure0/portfolio/blob/main/clouds-banner.jpg?raw=true" alt="Banner Image">
 </div>
 <style>
-    .header {
+    .header, .footer, .Toolbar, .MainMenu {
         visibility: hidden;
     }
     /* This code gets the first element on the sidebar,
