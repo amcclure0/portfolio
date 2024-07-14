@@ -12,6 +12,22 @@ from st_aggrid.grid_options_builder import GridOptionsBuilder
 import streamlit.components.v1 as components
 
 st.set_page_config(layout="wide")
+custom_html = """
+<div class="banner">
+    <img src="https://github.com/amcclure0/portfolio/blob/main/Boeing%20777%20Background.png?raw=true" alt="Banner Image">
+</div>
+<style>
+    .banner {
+        width: 160%;
+        height: 200px;
+        overflow: hidden;
+    }
+    .banner img {
+        width: 100%;
+        object-fit: cover;
+    }
+</style>
+"""
 st.title("Welcome to Flight Finder")
 st.markdown("Did you know that not all connecting flight itineraries are searchable on popular travel search engines like Google Flights? Flight Finder finds flight itineraries not marketed by the airlines or on Google Flights.  Whether you're dealing with a cancelled flight and need to find all options to get to your destination fast or are just looking for better prices or times Flight Finder can help.")
 left, right = st.columns([2,4])
