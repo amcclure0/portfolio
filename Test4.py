@@ -42,12 +42,12 @@ custom_html = """
         width: 102%;
         height: 100%;
         overflow: visible;
-        object-fit: contain;
+        object-fit: scale-down;
     }
     .banner img {
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        object-fit: scale-down;
     }
 </style>
 """
