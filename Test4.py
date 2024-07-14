@@ -41,13 +41,13 @@ custom_html = """
     .banner {
         width: 102%;
         height: 100%;
-        overflow: visible;
-        object-fit: scale-down;
+        overflow: hidden;
+        object-fit: fill;
     }
     .banner img {
         width: 100%;
         height: 100%;
-        object-fit: scale-down;
+        object-fit: fill;
     }
 </style>
 """
