@@ -29,8 +29,14 @@ custom_html = """
     <img src="https://github.com/amcclure0/portfolio/blob/main/clouds-banner.jpg?raw=true" alt="Banner Image">
 </div>
 <style>
-    .header {visibility: hidden;}
-    div.block-container{padding-top:2rem;}
+    #MainMenu, header, footer {visibility: hidden;}
+
+    /* This code gets the first element on the sidebar,
+    and overrides its default styling */
+    section[data-testid="stSidebar"] div:first-child {
+        top: 0;
+        height: 100vh;
+    }
     .banner {
         width: 120%;
         height: 150px;
