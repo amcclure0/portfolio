@@ -40,9 +40,9 @@ custom_html = """
     }
     .banner {
         width: 102%;
-        height: 80%;
+        height: 100%;
         overflow: visible;
-        object-fit: cover;
+        object-fit: contain;
     }
     .banner img {
         width: 100%;
