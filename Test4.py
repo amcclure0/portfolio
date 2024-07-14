@@ -29,7 +29,7 @@ custom_html = """
     <img src="https://github.com/amcclure0/portfolio/blob/main/clouds-banner.jpg?raw=true" alt="Banner Image">
 </div>
 <style>
-    header {visibility: hidden;}
+    .header {visibility: hidden;}
     .banner {
         width: 120%;
         height: 150px;
