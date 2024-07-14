@@ -16,7 +16,7 @@ st.set_page_config(layout="wide")
 st.title("Welcome to Flight Finder")
 st.subheader("Did you know that not all connecting flight combinations are searchable on Google Flights? Flight Finder finds hidden flight itineraries not marketed by the airlines or on Google Flights.")
 left, right = st.columns([2,4])
-right.image('https://github.com/amcclure0/portfolio/blob/main/Boeing%20777%20Background.png?raw=true', width = 600)
+right.image('https://github.com/amcclure0/portfolio/blob/main/Boeing%20777%20Background.png?raw=true', width = 800)
 
 
 # st.markdown(
