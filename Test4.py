@@ -14,17 +14,19 @@ from PIL import Image
 
 st.set_page_config(layout="wide")
 
-st.markdown(
-    """
-    <style>
-    [data-testid=stAppViewContainer] {
-        background: url('https://github.com/amcclure0/portfolio/blob/main/Boeing%20777%20Background.png?raw=true');
-        background-size: cover;
-    }
-   </style>
-    """,
-    unsafe_allow_html=True
-)
+right.image('https://github.com/amcclure0/portfolio/blob/main/Boeing%20777%20Background.png?raw=true')
+
+# st.markdown(
+#     """
+#     <style>
+#     [data-testid=stAppViewContainer] {
+#         background: url('https://github.com/amcclure0/portfolio/blob/main/Boeing%20777%20Background.png?raw=true');
+#         background-size: cover;
+#     }
+#    </style>
+#     """,
+#     unsafe_allow_html=True
+# )
 
 st.title("Welcome to Flight Finder")
 st.subheader("Did you know that not all connecting flight combinations are searchable on Google Flights? Flight Finder finds hidden flight itineraries not marketed by the airlines or on Google Flights.")
@@ -126,27 +128,27 @@ while len(Dest)==3:
    # print(completeorigin)
    # print(completedest)
       
-   right.subheader('Flights Options to XX')
-   ###DISPLAY DEST IMAGE###
-   destcity = completedest[0:len(completedest)-3]
-   URL = 'https://stock.adobe.com/search?filters%5Bcontent_type%3Aphoto%5D=1&filters%5Bcontent_type%3Aillustration%5D=0&filters%5Bcontent_type%3Azip_vector%5D=0&filters%5Bcontent_type%3Avideo%5D=0&filters%5Bcontent_type%3Atemplate%5D=0&filters%5Bcontent_type%3A3d%5D=0&filters%5Bcontent_type%3Aaudio%5D=0&filters%5Binclude_stock_enterprise%5D=0&filters%5Bis_editorial%5D=0&filters%5Bfree_collection%5D=0&filters%5Bcontent_type%3Aimage%5D=1&k={}&order=relevance&safe_search=1&search_type=filter-select&get_facets=1'.format(f"{destcity} Skyline")
+   # right.subheader('Flights Options to XX')
+   # ###DISPLAY DEST IMAGE###
+   # destcity = completedest[0:len(completedest)-3]
+   # URL = 'https://stock.adobe.com/search?filters%5Bcontent_type%3Aphoto%5D=1&filters%5Bcontent_type%3Aillustration%5D=0&filters%5Bcontent_type%3Azip_vector%5D=0&filters%5Bcontent_type%3Avideo%5D=0&filters%5Bcontent_type%3Atemplate%5D=0&filters%5Bcontent_type%3A3d%5D=0&filters%5Bcontent_type%3Aaudio%5D=0&filters%5Binclude_stock_enterprise%5D=0&filters%5Bis_editorial%5D=0&filters%5Bfree_collection%5D=0&filters%5Bcontent_type%3Aimage%5D=1&k={}&order=relevance&safe_search=1&search_type=filter-select&get_facets=1'.format(f"{destcity} Skyline")
    
-   page = requests.get(URL)
+   # page = requests.get(URL)
 
-   soup = BeautifulSoup(page.content, "html.parser")
+   # soup = BeautifulSoup(page.content, "html.parser")
 
-   results = soup.find(id='mosaic-container')
+   # results = soup.find(id='mosaic-container')
 
-   cityimgraw = str(results.find('div', class_='search-result-cell small-bottom-spacing js-search-result-cell ftl-thumb-mosaic js-hover-container'))
+   # cityimgraw = str(results.find('div', class_='search-result-cell small-bottom-spacing js-search-result-cell ftl-thumb-mosaic js-hover-container'))
  
-   cityimg = cityimgraw[cityimgraw.find('src=')+5:cityimgraw.find('"/>',cityimgraw.find('src=')+4)]
+   # cityimg = cityimgraw[cityimgraw.find('src=')+5:cityimgraw.find('"/>',cityimgraw.find('src=')+4)]
 
-   def get_image():
-      URL = cityimg
-      r = requests.get(URL)
-      return BytesIO(r.content)
+   # def get_image():
+   #    URL = cityimg
+   #    r = requests.get(URL)
+   #    return BytesIO(r.content)
 
-   right.image(get_image())
+   # right.image(get_image())
 
    break
 
