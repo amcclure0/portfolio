@@ -18,7 +18,7 @@ st.markdown(
     """
     <style>
     .reportview-container {
-        background: url("https://www.pinterest.com/pin/globe-world-grey-transparent-background-png-clipart--569283209151500207/");
+        background: url('https://i.pinimg.com/736x/a7/92/f9/a792f931fa9ca126f63de33d0c64307d.jpg');
     }
    </style>
     """,
