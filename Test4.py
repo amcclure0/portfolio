@@ -17,18 +17,22 @@ st.markdown("Did you know that not all connecting flight itineraries are searcha
 left, right = st.columns([2,4])
 right.image('https://github.com/amcclure0/portfolio/blob/main/Boeing%20777%20Background%20(reduced).png?raw=true', width = 900)
 
-
-# st.markdown(
-#     """
-#     <style>
+###establishing page formatting
+st.markdown(
+    """
+    <style>
 #     [data-testid=stAppViewContainer] {
 #         background: url('https://github.com/amcclure0/portfolio/blob/main/Boeing%20777%20Background.png?raw=true');
 #         background-size: cover;
 #     }
-#    </style>
-#     """,
-#     unsafe_allow_html=True
-# )
+      [data-testid=stAppViewContainer {
+         padding-top: 0rem;
+      }
+   </style>
+    """,
+    unsafe_allow_html=True
+)
+###
 
 Origin = left.text_input("Origin Airport (use IATA 3 character code)")
 Dest = left.text_input("Destination Airport (use IATA 3 character code)")
