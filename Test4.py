@@ -25,7 +25,7 @@ st.markdown(
 #         background: url('https://github.com/amcclure0/portfolio/blob/main/Boeing%20777%20Background.png?raw=true');
 #         background-size: cover;
 #     }
-      .appview-container.main.block-container {
+      root.stApp stAppEmbeddingId-sgmpsg1l0ju7 streamlit-wide st-emotion-cache-1r4qj8v erw9t6i1.appview-container.block-container {
          padding-top: 0rem;
       }
    </style>
