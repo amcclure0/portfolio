@@ -16,6 +16,7 @@ st.title("Welcome to Flight Finder")
 st.markdown("Did you know that not all connecting flight itineraries are searchable on popular travel search engines like Google Flights? Flight Finder finds flight itineraries not marketed by the airlines or on Google Flights.  Whether you're dealing with a cancelled flight and need to find all options to get to your destination fast or are just looking for better prices or times Flight Finder can help.")
 left, right = st.columns([2,4])
 right.image('https://github.com/amcclure0/portfolio/blob/main/Boeing%20777%20Background%20(reduced).png?raw=true', width = 900)
+left.video('https://www.youtube.com/watch?v=R1sSaJQewgk', format="video/mp4", start_time=0, *, subtitles=None, end_time=None, loop=True, autoplay=True, muted=True)
 
 ###establishing page formatting
 st.markdown(
