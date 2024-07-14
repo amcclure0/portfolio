@@ -12,6 +12,18 @@ from st_aggrid.grid_options_builder import GridOptionsBuilder
 import streamlit.components.v1 as components
 
 st.set_page_config(layout="wide")
+
+margins_css = """
+    <style>
+        .main > div {
+            padding-left: 0rem;
+            padding-right: 0rem;
+        }
+    </style>
+"""
+
+st.markdown(margins_css, unsafe_allow_html=True)
+
 custom_html = """
 <div class="banner">
     <img src="https://github.com/amcclure0/portfolio/blob/main/clouds-banner.jpg?raw=true" alt="Banner Image">
