@@ -210,14 +210,14 @@ while len(Origin)==3 and len(Dest)==3:
       
       for i in layoverpoints.iataandcity:
           googleurlsleg1 += [
-          'https://www.google.com/travel/flights?hl=en&q=Flights%20to%20{dest}%20from%20{origin}%20on%20{date}%20oneway%20nonstop'.format(
+          'https://www.google.com/travel/flights?hl=en&q=Flights%20to%20{dest}%20from%20{origin}%20on%20{date}%20oneway%20nonstop%20business'.format(
               dest = i.lower(),
               origin = completeorigin.lower(),
               date = Date
           )
           ]
           googleurlsleg1 += [
-          'https://www.google.com/travel/flights?hl=en&q=Flights%20to%20{dest}%20from%20{origin}%20on%20{date}%20oneway%20nonstop'.format(
+          'https://www.google.com/travel/flights?hl=en&q=Flights%20to%20{dest}%20from%20{origin}%20on%20{date}%20oneway%20nonstop%20business'.format(
               dest = i.lower(),
               origin = completeorigin.lower(),
               date = Nextdate
@@ -226,14 +226,14 @@ while len(Origin)==3 and len(Dest)==3:
       
       for i in layoverpoints.iataandcity:
           googleurlsleg2 += [
-          'https://www.google.com/travel/flights?hl=en&q=Flights%20to%20{dest}%20from%20{origin}%20on%20{date}%20oneway%20nonstop%20business'.format(
+          'https://www.google.com/travel/flights?hl=en&q=Flights%20to%20{dest}%20from%20{origin}%20on%20{date}%20oneway%20nonstop'.format(
               dest = completedest.lower(),
               origin = i.lower(),
               date = Date
           )
           ]
           googleurlsleg2 += [
-          'https://www.google.com/travel/flights?hl=en&q=Flights%20to%20{dest}%20from%20{origin}%20on%20{date}%20oneway%20nonstop%20business'.format(
+          'https://www.google.com/travel/flights?hl=en&q=Flights%20to%20{dest}%20from%20{origin}%20on%20{date}%20oneway%20nonstop'.format(
               dest = completedest.lower(),
               origin = i.lower(),
               date = Nextdate
