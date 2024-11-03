@@ -54,8 +54,8 @@ custom_html = """
 st.components.v1.html(custom_html)
 st.title("Welcome to Flight Finder")
 st.markdown("Did you know that not all connecting flight itineraries are searchable on popular travel search engines like Google Flights? Flight Finder finds flight itineraries not marketed by the airlines or on Google Flights.  Whether you're dealing with a cancelled flight and need to find all options to get to your destination fast or are just looking for better prices or times Flight Finder can help.")
-left, right = st.columns([2,4])
-right.image('https://github.com/amcclure0/portfolio/blob/main/Boeing%20777%20Background%20(reduced).png?raw=true', width = 900)
+left, mid, right = st.columns([2,2,2])
+# right.image('https://github.com/amcclure0/portfolio/blob/main/Boeing%20777%20Background%20(reduced).png?raw=true', width = 900)
 # left.video('https://www.youtube.com/watch?v=1-m_Jjse-cs', format="video/mp4", start_time=706, subtitles=None, end_time=None, loop=True, autoplay=False, muted=False)
 
 ###establishing page formatting
@@ -84,8 +84,8 @@ Dateraw = left.date_input("Departure Date", format="YYYY-MM-DD", label_visibilit
 Date = str(Dateraw)
 Nextdateraw = Dateraw + timedelta(days=1)
 Nextdate = Nextdateraw.strftime('%Y-%m-%d')
-Leg1class = right.selectbox("Leg 1 Fare Class",("Economy", "Business"))
-Leg2class = right.selectbox("Leg 2 Fare Class",("Economy", "Business"))
+Leg1class = mid.selectbox("Leg 1 Fare Class",("Economy", "Business"))
+Leg2class = mid.selectbox("Leg 2 Fare Class",("Economy", "Business"))
 Minlayover = int(left.text_input("Minimum Layover (hours)", 2))
 Maxlayover = int(left.text_input("Maximum Layover (hours)", 6))
 
@@ -212,33 +212,37 @@ while len(Origin)==3 and len(Dest)==3:
       
       for i in layoverpoints.iataandcity:
           googleurlsleg1 += [
-          'https://www.google.com/travel/flights?hl=en&q=Flights%20to%20{dest}%20from%20{origin}%20on%20{date}%20oneway%20nonstop%20business'.format(
+          'https://www.google.com/travel/flights?hl=en&q=Flights%20to%20{dest}%20from%20{origin}%20on%20{date}%20oneway%20nonstop%20{fare}'.format(
               dest = i.lower(),
               origin = completeorigin.lower(),
-              date = Date
+              date = Date,
+              fare = Leg1class
           )
           ]
           googleurlsleg1 += [
-          'https://www.google.com/travel/flights?hl=en&q=Flights%20to%20{dest}%20from%20{origin}%20on%20{date}%20oneway%20nonstop%20business'.format(
+          'https://www.google.com/travel/flights?hl=en&q=Flights%20to%20{dest}%20from%20{origin}%20on%20{date}%20oneway%20nonstop%20{fare}'.format(
               dest = i.lower(),
               origin = completeorigin.lower(),
-              date = Nextdate
+              date = Nextdate,
+              fare = Leg1class
           )
       ]
       
       for i in layoverpoints.iataandcity:
           googleurlsleg2 += [
-          'https://www.google.com/travel/flights?hl=en&q=Flights%20to%20{dest}%20from%20{origin}%20on%20{date}%20oneway%20nonstop'.format(
+          'https://www.google.com/travel/flights?hl=en&q=Flights%20to%20{dest}%20from%20{origin}%20on%20{date}%20oneway%20nonstop%20{fare}'.format(
               dest = completedest.lower(),
               origin = i.lower(),
-              date = Date
+              date = Date,
+              fare = Leg2class
           )
           ]
           googleurlsleg2 += [
-          'https://www.google.com/travel/flights?hl=en&q=Flights%20to%20{dest}%20from%20{origin}%20on%20{date}%20oneway%20nonstop'.format(
+          'https://www.google.com/travel/flights?hl=en&q=Flights%20to%20{dest}%20from%20{origin}%20on%20{date}%20oneway%20nonstop%20{fare}'.format(
               dest = completedest.lower(),
               origin = i.lower(),
-              date = Nextdate
+              date = Nextdate,
+              fare = leg2class
           )
       ]
       
