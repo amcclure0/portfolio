@@ -408,7 +408,7 @@ while len(Origin)==3 and len(Dest)==3:
       allflights['layoverarrive'] = pd.to_datetime(allflights.arrivaltime_x)
       allflights['layoverdepart'] = pd.to_datetime(allflights.departuretime_y)
       allflights['origindepart'] = pd.to_datetime(allflights.departuretime_x)
-      allflights['destarrive'] = pd.to_datetime(allflights.arrvialtime_y)
+      allflights['destarrive'] = pd.to_datetime(allflights.arrivaltime_y)
       allflights['totaltime'] = round((allflights['origindepart'] - allflights['destarrive'])/pd.Timedelta(hours=1),2)
       allflights['layoverhours'] = round((allflights['layoverdepart'] - allflights['layoverarrive'])/pd.Timedelta(hours=1),2)
        
