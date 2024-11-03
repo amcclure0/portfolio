@@ -86,8 +86,8 @@ Nextdateraw = Dateraw + timedelta(days=1)
 Nextdate = Nextdateraw.strftime('%Y-%m-%d')
 Leg1class = mid.selectbox("Leg 1 Fare Class",("Economy", "Business"))
 Leg2class = mid.selectbox("Leg 2 Fare Class",("Economy", "Business"))
-Minlayover = int(left.text_input("Minimum Layover (hours)", 2))
-Maxlayover = int(left.text_input("Maximum Layover (hours)", 6))
+Minlayover = int(right.text_input("Minimum Layover (hours)", 2))
+Maxlayover = int(right.text_input("Maximum Layover (hours)", 6))
 
 while len(Dest)==3:
 
