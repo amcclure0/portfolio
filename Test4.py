@@ -405,11 +405,12 @@ while len(Origin)==3 and len(Dest)==3:
       
       allflights = pd.merge(leg1flightsdf, leg2flightsdf, on='layover')
       allflights['totalcost'] = allflights.cleanprice_x + allflights.cleanprice_y
+      allflights['totaltime'] = round(pd.to_datetime(allflights.departuretime_x) - pd.to_datetime(allflights.arrivaltime_y)/pd.Timedelta(hours=1),2)
       allflights['layoverarrive'] = pd.to_datetime(allflights.arrivaltime_x)
       allflights['layoverdepart'] = pd.to_datetime(allflights.departuretime_y)
-      allflights['layoverhours'] = (allflights['layoverdepart'] - allflights['layoverarrive'])/pd.Timedelta(hours=1)
-      
-      displaycolumns = {'layover': 'Layover Aiport', 'logo_x': 'Leg 1 Airline', 'logo_y': 'Leg 2 Airline', 'totalcost': 'Total Cost', 'layoverhours': 'Layover Hours', 'departuretime_x': 'Leg 1 Departure', 'arrivaltime_x': 'Leg 1 Arrival', 'departuretime_y': 'Leg 2 Departure', 'arrivaltime_y': 'Leg 2 Arrival'}
+      allflights['layoverhours'] = round((allflights['layoverdepart'] - allflights['layoverarrive'])/pd.Timedelta(hours=1),2)
+       
+      displaycolumns = {'layover': 'Layover Aiport', 'logo_x': 'Leg 1 Airline', 'logo_y': 'Leg 2 Airline', 'totalcost': 'Total Cost', 'totaltime': 'Total Time (Hours)', 'layoverhours': 'Layover Hours', 'departuretime_x': 'Leg 1 Departure', 'arrivaltime_x': 'Leg 1 Arrival', 'departuretime_y': 'Leg 2 Departure', 'arrivaltime_y': 'Leg 2 Arrival'}
       displayflights = allflights.rename(columns = displaycolumns)[[*displaycolumns.values()]]
       displayflights = displayflights[displayflights['Layover Hours'].between(Minlayover, Maxlayover)]
       displayflights = displayflights.sort_values(by=['Total Cost'])
