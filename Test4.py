@@ -409,7 +409,7 @@ while len(Origin)==3 and len(Dest)==3:
       allflights['layoverdepart'] = pd.to_datetime(allflights.departuretime_y)
       allflights['origindepart'] = pd.to_datetime(allflights.departuretime_x)
       allflights['destarrive'] = pd.to_datetime(allflights.arrivaltime_y)
-      allflights['totaltime'] = round((allflights['origindepart'] - allflights['destarrive'])/pd.Timedelta(hours=1),2)
+      allflights['totaltime'] = round((allflights['destarrive'] - allflights['origindepart'])/pd.Timedelta(hours=1),2)
       allflights['layoverhours'] = round((allflights['layoverdepart'] - allflights['layoverarrive'])/pd.Timedelta(hours=1),2)
        
       displaycolumns = {'layover': 'Layover Aiport', 'logo_x': 'Leg 1 Airline', 'logo_y': 'Leg 2 Airline', 'totalcost': 'Total Cost', 'totaltime': 'Total Time (Hours)', 'layoverhours': 'Layover Hours', 'departuretime_x': 'Leg 1 Departure', 'arrivaltime_x': 'Leg 1 Arrival', 'departuretime_y': 'Leg 2 Departure', 'arrivaltime_y': 'Leg 2 Arrival'}
