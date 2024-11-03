@@ -242,7 +242,7 @@ while len(Origin)==3 and len(Dest)==3:
               dest = completedest.lower(),
               origin = i.lower(),
               date = Nextdate,
-              fare = leg2class
+              fare = Leg2class
           )
       ]
       
