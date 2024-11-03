@@ -84,6 +84,8 @@ Dateraw = left.date_input("Departure Date", format="YYYY-MM-DD", label_visibilit
 Date = str(Dateraw)
 Nextdateraw = Dateraw + timedelta(days=1)
 Nextdate = Nextdateraw.strftime('%Y-%m-%d')
+Leg1class = right.selectbox("Leg 1 Fare Class",("Economy", "Business"))
+Leg2class = right.selectbox("Leg 2 Fare Class",("Economy", "Business"))
 Minlayover = int(left.text_input("Minimum Layover (hours)", 2))
 Maxlayover = int(left.text_input("Maximum Layover (hours)", 6))
 
